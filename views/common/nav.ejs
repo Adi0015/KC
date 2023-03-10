@@ -1,0 +1,226 @@
+<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> -->
+
+
+<div class="container-fluid" id="menu">
+      <div class="row">
+          <div class="col">
+              <ul>
+                  <li><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                  <li><a class="nav-link" href="#">About Us</a></li>
+                  <li><a class="nav-link" href="/admission">Admissions</a></li>
+                  <li><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Branches</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Charkop</a></li>
+                        <li><a class="dropdown-item" href="#">Andheri</a></li>
+                        <li><a class="dropdown-item" href="#">Borivali</a></li>
+                      </ul>
+                </li>
+                  <li><a class="nav-link" href="/activity">Activities</a></li>
+                  <li><a class="nav-link" href="/contact">Contact Us</a></li>
+              </ul>
+          </div>
+        </div>
+    </div>
+    
+    <style>
+        #menu {
+          background-color: rgb(255, 0, 0);
+          font-size: 18px;
+          font-family:'comic sans ms';
+          padding-top: 15px;
+          border-bottom-left-radius:20px ;
+          border-bottom-right-radius:20px ;
+        }
+        
+        #menu ul{
+          list-style-type: none;
+          text-align: center;
+          margin: 0;
+          padding: 0;
+        }
+        
+        #menu ul li {
+          display: inline-block;
+          margin-right: 20px;
+        }
+        
+        #menu a {
+          display: block;
+          padding: 10px;
+          color: white;
+        }
+        
+        .dropdown-menu {
+          display: none;
+          position: absolute;
+          background-color: rgb(255, 0, 0);
+          z-index: 1;
+        }
+        
+        .dropdown-menu li {
+          display: block;
+        }
+        
+        .dropdown-toggle:hover .dropdown-menu {
+          display: block;
+        }
+        
+        @media screen and (max-width: 768px) {
+          #menu ul li {
+            display: block;
+            margin: 10px 0;
+          }
+          
+          .dropdown-toggle:hover .dropdown-menu {
+            display: none;
+          }
+          
+          .dropdown-menu {
+            position: static;
+            background-color: transparent;
+            margin: 10px 0;
+          }
+          
+          .dropdown-menu li {
+            display: inline-block;
+            margin-right: 10px;
+          }
+        }
+      </style>
+
+  <!-- <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Responsive Navbar</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  </head>
+  <body>
+      <nav>
+          <input type="checkbox" class="myCheckBox" id="myCheck">
+          <label for="myCheck" class="checkButton">
+              <i class="fa fa-bars"></i>
+          </label>
+          <label class="logo">Navbar<span style="color:#f7c324"></span></label>
+          <ul>
+              <li><a href="/" class="active">Home</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="">Activity</a></li>
+              <li><a href="">Contact Us</a></li>
+              <li><a href="">Admission</a></li>
+              <li><a href="">Branches</a></li>
+          </ul>
+      </nav>
+  </body>
+  </html>
+
+
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background-color: #e60064;
+    height: 80px;
+    width: 100%;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+
+}
+nav ul{
+    float: right;
+    margin-right: 55px;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: cursive;
+    padding: 7px 13px;
+}
+
+label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.checkButton{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+.myCheckBox{
+    display: none;
+}
+
+a:hover,a.active{
+    color: #f7c324;
+}
+
+@media screen and (max-width:952px) {
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:858px) {
+    .checkButton{
+        display: block;
+    }
+
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(239, 232, 233);
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+
+    nav ul li a{
+        font-size: 20px;
+        color: black;
+    }
+
+    a:hover,a.active{
+        color: #e60064;
+    }
+
+    .myCheckBox:checked ~ ul{
+        left: 0;
+    }
+}  
+</style>  -->

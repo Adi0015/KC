@@ -1,0 +1,19 @@
+#videos h4 {
+    margin-top: 15px;
+    font-family:'comic sans ms';
+    font-size: 30px;
+    color: rgb(14, 41, 179);
+} 
+h4::after{
+  display: block;
+  text-align: center;
+  font-size: 1em;
+  color: rgb(255, 0, 0);
+  content: "—";
+}
+#videos{
+    padding-bottom: 50px;
+}
+.nav-link active{
+    color: black;
+}
