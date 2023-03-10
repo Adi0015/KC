@@ -11,7 +11,7 @@ const homeRoutes = require("./routes/homeRoutes");
 
 // Decalring App
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 app.set("view engine", "ejs");
 
 // For parsing url body
@@ -41,5 +41,5 @@ app.use((req, res) => {
 
 // Listen on Environment Port or 3000
 
-app.listen(port, () => console.log(`Listening on port ${port} \n goto http://localhost:4000/`));
+app.listen(port, () => console.log(`Listening on port ${port} \n goto http://localhost:3000/`));
 

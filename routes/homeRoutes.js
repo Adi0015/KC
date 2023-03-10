@@ -14,7 +14,7 @@ router
 
 router
     .route("/admission")
-    .get(homeController.getAdmission);
+    .get(homeController.getAdmission)
 
 router
     .route("/registration")
@@ -27,7 +27,9 @@ router
 
 router
     .route("/contact")
-    .get(homeController.getContact);
+    .get(homeController.getContact)
+    .post(homeController.createContact)
+
 
 //     .route("/admission")
 //     .get(admissionController.getPage);
