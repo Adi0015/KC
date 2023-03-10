@@ -12,7 +12,7 @@
   <%- include('./common/header.ejs') %>
   <%- include('./common/nav.ejs') %>
   <h4>Admission Form </h4>
-      <form>
+      <form enctype="multipart/form-data"  action="/admission" method="post">
         <div class="details">
            
           <div class="form-group">
@@ -41,8 +41,8 @@
           </div>
 
           <div class="form-group">
-            <label for="Standard">Class:</label>
-            <select id="Standard" name="Standard" required>
+            <label for="standard">Class:</label>
+            <select id="standard" name="standard" required>
               <option value="">Choose Class</option>
               <option value="Jr. KG">Jr.KG</option>
               <option value="Sr. Kg">Sr.KG</option>
@@ -85,19 +85,20 @@
           </div>
 
          <div class="form-group">
-          <label for="childpicture">Child Picture:</label>
-          <input type="file" id="childpicture" name="childpicture" accept="image/jpeg, image/png">
+          <label for="childPicture">Child Picture:</label>
+          <input type="file" id="childPicture" name="childPicture" accept="image/jpeg, image/x-png , image/jpg" multiple>
          </div>
 
          <div class="form-group">
          <label for="parentPicture">Parent Picture :</label>
-         <input type="file" id="parentPicture" name="parentPicture" accept="image/jpeg, image/png">
+         <input type="file" id="parentPicture" name="parentPicture" accept="image/jpeg, image/x-png , image/jpg" multiple>
          </div>
 
          </div>
 
-         <button type="submit">Submit</button>
-    </form> 
+         <button type="button" id="upload_btn">Submit</button>
+    </form>
+    <script src="/script/uploadjs.js"></script>
     <br>
     <br>
     

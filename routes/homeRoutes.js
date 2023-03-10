@@ -1,10 +1,21 @@
 const express = require('express');
 const path = require('path')
 const homeController = require('../controllers/homeController');
-// const admissionController = require('../controllers/admissionController');
-// const registrationController = require('../controllers/registrationController');
-// const activityController = require('../controllers/activityController');
-// const contactController = require('../controllers/contactController');
+
+const fs = require("fs");
+
+
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: (req, res, cb) => {
+    cb(null, "./public/uploadImages");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+
 
 const router = express.Router();
 router
@@ -15,6 +26,7 @@ router
 router
     .route("/admission")
     .get(homeController.getAdmission)
+    .post(upload.fields([{ name: 'childPicture', maxCount: 1 }, { name: 'parentPicture', maxCount: 1 }]), homeController.createAdmisson);
 
 router
     .route("/registration")

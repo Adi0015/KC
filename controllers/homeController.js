@@ -1,4 +1,10 @@
 const Enquiry = require('../models/enquiry')
+const Admission = require('../models/admission.js')
+const fs = require('fs');
+const path = require('path');
+
+
+
 exports.getHome = async (req, res) => {
   try {
     res.status(200).render("home", { page: "Home", content: "default" });
@@ -32,6 +38,53 @@ exports.createContact = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).render('404')
+  }
+};
+
+exports.createAdmisson = async (req, res) => {
+  const {
+    name,
+    childAge,
+    birthdate,
+    branch,
+    standard,
+    fatherName,
+    fatheroccupation,
+    fatherMobileNumber,
+    motherName,
+    motheroccupation,
+    motherMobileNumber,
+    email,
+  } = req.body;
+  console.log(req.files.childPicture);
+  const childPicture = req.files.childPicture[0].originalname;
+  const parentPicture = req.files.parentPicture[0].originalname;
+  console.log(childPicture);
+  
+  try {
+    // Save admission to database
+    const admit = new Admission(
+      name,
+      childAge,
+      birthdate,
+      branch,
+      standard,
+      fatherName,
+      fatheroccupation,
+      fatherMobileNumber,
+      motherName,
+      motheroccupation,
+      motherMobileNumber,
+      email,
+      childPicture,
+      parentPicture,
+    );
+    const data = await admit.save();
+
+    res.status(200).json({data});
+  } catch (error) {
+    console.log(error);
+    res.status(500).render('404');
   }
 };
 exports.getActivity = async (req, res) => {
