@@ -1,5 +1,6 @@
 body {
-  background-color: antiquewhite;
+  /* background-color: rgb(220, 217, 133); */
+  background-image: url("../images/activity.png");
 }
 
 #videos h4 {
