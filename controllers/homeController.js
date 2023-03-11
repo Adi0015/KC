@@ -2,8 +2,8 @@ const Enquiry = require('../models/enquiry')
 const Admission = require('../models/admission.js')
 const fs = require('fs');
 const path = require('path');
-
-
+const db = require('../lib/db')
+const excel = require('exceljs')
 
 exports.getHome = async (req, res) => {
   try {
@@ -93,3 +93,65 @@ exports.getActivity = async (req, res) => {
 exports.getRegistration = async (req, res) => {
   res.status(200).render("registration", { page: "registration" });
 };
+
+exports.getEnquiries = async (req, res) => {
+  try {
+    const { startDate, endDate } = req.query
+    let sql = `SELECT * FROM enquiry`
+    if (startDate && endDate) {
+      sql += ` WHERE date BETWEEN '${startDate}' AND '${endDate}'`
+    }
+    const [rows] = await db.execute(sql)
+    res.render('enquiries', { enquiries: rows, startDate, endDate })
+  } catch (error) {
+    console.log(error)
+    res.render('404')
+  }
+}
+
+exports.downloadEnquiries = async (req, res) => {
+  try {
+    const { startDate, endDate } = req.query
+    let sql = `SELECT * FROM enquiry`
+    if (startDate && endDate) {
+      sql += ` WHERE date BETWEEN '${startDate}' AND '${endDate}'`
+    }
+    const [rows] = await db.execute(sql)
+    
+    // Create a new Excel workbook
+    const workbook = new excel.Workbook()
+    const sheet = workbook.addWorksheet('Enquiries')
+
+    // Define the table header
+    sheet.columns = [
+      { header: 'Date', key: 'date' },
+      { header: 'Parent Name', key: 'parent_name' },
+      { header: 'Email', key: 'email' },
+      { header: 'Phone', key: 'phone' },
+      { header: 'Message', key: 'message' }
+    ]
+
+    // Add the rows of data to the table
+    for (const enquiry of rows) {
+      sheet.addRow({
+        date: enquiry.date.toDateString(),
+        parent_name: enquiry.parent_name,
+        email: enquiry.email,
+        phone: enquiry.phone,
+        message: enquiry.message
+      })
+    }
+
+    // Set the response headers to force download the file
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    res.setHeader('Content-Disposition', 'attachment; filename=enquiries.xlsx')
+
+    // Write the workbook to the response
+    await workbook.xlsx.write(res)
+    res.end()
+
+  } catch (error) {
+    console.log(error)
+    res.render('404')
+  }
+}

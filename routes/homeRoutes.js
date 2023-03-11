@@ -43,6 +43,14 @@ router
     .post(homeController.createContact)
 
 
+router 
+  .route("/enquiries")
+  .get(homeController.getEnquiries)
+  
+router
+  .route('/enquiries/download')
+  .get(homeController.downloadEnquiries)
+
 //     .route("/admission")
 //     .get(admissionController.getPage);
 

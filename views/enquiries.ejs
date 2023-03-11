@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enquiry List</title>
+  </head>
+  <body>
+    <h1>Enquiry List</h1>
+    <form method="GET" action="/enquiries/download">
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" name="startDate">
+
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" name="endDate">
+
+      <button type="submit">Filter</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Parent Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% enquiries.forEach(enquiry => { %>
+          <tr>
+            <td><%= enquiry.date.toDateString() %></td>
+            <td><%= enquiry.parent_name %></td>
+            <td><%= enquiry.email %></td>
+            <td><%= enquiry.phone %></td>
+            <td><%= enquiry.message %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <% if (enquiries.length > 0) { %>
+      <a href="/enquiries/download?startDate=<%= startDate %>&endDate=<%= endDate %>">Download Enquiries</a>
+    <% } %>
+  </body>
+</html>
