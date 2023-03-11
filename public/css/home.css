@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(230, 231, 177);
+}
 /* #header{
     text-align: center;
     font-family:'comic sans ms';
@@ -52,7 +55,7 @@
     font-size: 25px;  
 }
 
-#footer{
+/* #footer{
  padding: 20px;
  text-align: center;
  font-size: 17px;
@@ -62,4 +65,4 @@
 #footer span{
     font-weight:700;
     color: rgb(255, 0, 0);
-}
+} */

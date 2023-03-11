@@ -1,31 +1,67 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-<div class="container-fluid" id="header">
+<!-- <div class="container-fluid" id="header">
     <div class="row">
      <div class="col">
        <img src="/images/KClogo.png" alt="logo" height="150px">
      </div>
-     <div class="col offset-1">
+     <div>
        <p><span>Kids' Concept</span><br>
        Playgroup , Nursery & Pre-primary school</p>
        </div>
-       <!-- <div class="col">
+       <div class="col">
          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><b>Log in</b></a>
        </div> -->
+    <!-- </div>
+   </div> --> 
+
+
+   <div class="container-fluid" id="header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h1 class="mb-0">Kids' Concept</h1>
+        <p >Playgroup, Nursery & Pre-primary school</p>
+      </div>
     </div>
-   </div>
+  </div>
 
    <style>
-#header{
-    text-align: center;
-    font-family:'comic sans ms';
+/* Default styles */
+#header {
+  text-align: center;
+  font-family: 'comic sans ms';
+  font-size: 20px;
+  font-weight: 800;
+  background-color: rgb(248, 248, 109);
+  color: rgb(255, 0, 0);
+}
+
+#header span {
+  font-size: 30px;
+}
+
+/* Media queries for smaller screens */
+@media only screen and (max-width: 768px) {
+  #header {
+    font-size: 16px;
+  }
+  
+  #header span {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #header {
+    font-size: 14px;
+  }
+  
+  #header span {
     font-size: 20px;
-    font-weight:800;
-    background-color: rgb(248, 248, 109);
-    color: rgb(255, 0, 0);
+  }
 }
-#header span{
-    font-size: 30px;
-}
+
+/* etc. for other screen sizes */
+
 </style>
 

@@ -1,19 +1,37 @@
+body {
+  background-color: antiquewhite;
+}
+
 #videos h4 {
     margin-top: 15px;
-    font-family:'comic sans ms';
+    font-family: 'comic sans ms';
     font-size: 30px;
     color: rgb(14, 41, 179);
-} 
-h4::after{
-  display: block;
-  text-align: center;
-  font-size: 1em;
-  color: rgb(255, 0, 0);
-  content: "—";
-}
-#videos{
+  }
+  
+  h4::after {
+    display: block;
+    text-align: center;
+    font-size: 1em;
+    color: rgb(255, 0, 0);
+    content: "—";
+  }
+  
+  #videos {
     padding-bottom: 50px;
-}
-.nav-link active{
+  }
+  
+  .nav-link.active {
     color: black;
-}
+  }
+  
+  @media screen and (max-width: 768px) {
+    #videos h4 {
+      font-size: 24px;
+    }
+    
+    .nav-link.active {
+      font-size: 16px;
+    }
+  }
+  
