@@ -81,7 +81,7 @@ exports.createAdmisson = async (req, res) => {
     );
     const data = await admit.save();
 
-    res.status(200).json({data});
+    res.status(200).redirect('/');
   } catch (error) {
     console.log(error);
     res.status(500).render('404');

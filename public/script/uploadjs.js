@@ -9,9 +9,9 @@ uploadBtn.addEventListener("click", () => {
     alert("Please Upload a file");
   } else {
     let t = Date.now()
-    let imgNameChild = t + "-child" 
-    let imgNameParent = t + "-parent" 
-    console.log(childpic.files[0]);
+    let imgNameChild = t + "-child.jpg" 
+    let imgNameParent = t + "-parent.jpg" 
+    // console.log(childpic.files[0]);
   
     let newImageChild = new File([childpic.files[0]], `${imgNameChild}`);
     let newImageParent = new File([parpic.files[0]], `${imgNameParent}`);
