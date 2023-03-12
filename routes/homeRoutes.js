@@ -32,6 +32,7 @@ router
     .route("/registration")
     .get(homeController.getRegistration);
 
+
 router
     .route("/activity")
     .get(homeController.getActivity);
@@ -46,6 +47,14 @@ router
 router 
   .route("/enquiries")
   .get(homeController.getEnquiries)
+
+router 
+  .route("/video")
+  .get(homeController.getVideos)
+  
+router 
+  .route("/gallery")
+  .get(homeController.getGallery)
   
 router
   .route('/enquiries/download')

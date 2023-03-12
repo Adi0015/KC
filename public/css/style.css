@@ -128,7 +128,7 @@ a:focus {
   height: 75px;
   bottom: 20%;
   left: 6%;
-  background-color: #fdd31d;
+  /* background-color: #fdd31d; */
 }
 
 
@@ -200,8 +200,8 @@ background-color: #000;
 
 .hero_img-container {
   width: 68%;
-  margin-right: -8%;
-  margin-top: -9%;
+  /* margin-right: -8%; */
+  margin-top: -5%;
 }
 
 .hero_img-container img {
@@ -209,7 +209,7 @@ background-color: #000;
 }
 
 .hero_detail-box {
-  color: #0303fc;
+  color: #fefeff;
 }
 
 .hero_detail-box h1 {
@@ -271,6 +271,7 @@ background-color: #000;
 .about_detail-box p{
   font-family: Arial, Helvetica, sans-serif; 
   text-align: justify;
+  /* color: #fff; */
   /* font-weight: 900; */
 }
 
@@ -288,11 +289,13 @@ background-color: #000;
   background-size: cover;
   background-position: center;
   /* margin-top: 10%; */
-
+.admission_page {
+  background-color: #4CC6ED;;
+}
 h4{
   margin-bottom: 10px;
-  font-family:'Brush Script MT', cursive;
   font-size: 40px;
+  font-family:"Raleway", sans-serif;
   color: rgb(8, 8, 8);
   text-align: center;
   font-weight: 1000;
@@ -304,13 +307,19 @@ font-size: 1em;
 color: rgb(255, 0, 0);
 content: "—";
 }
+#admissionopen img{
+  border-radius: 38% 62% 39% 61% / 60% 48% 52% 40%  ;
+  margin-top:50px;
+}
+
 form {
   display:flex;
   flex-direction: column;
-  /* max-width: 500px; */
+  max-width: 500px;
+  margin-left: 5rem;
   /* margin:0 auto; */
-  margin-left: 20%;
-  margin-right: 20%;
+  /* margin-left: 20%;
+  margin-right: 20%; */
  
 }
   .details{
@@ -330,7 +339,7 @@ form {
     font-weight: bold;
     margin-bottom: 5px;
     font-family:"Raleway", sans-serif;
-    color: rgb(255,0,0);
+    color: rgb(0, 0, 0);
   }
   
   input[type="text"],
@@ -395,6 +404,75 @@ form {
 
 /* end admission section */
 
+/* videos section */
+h4{
+  margin-top: 3rem;
+  margin-bottom: 10px;
+  font-size: 40px;
+  color: rgb(8, 8, 8);
+  text-align: center;
+  font-weight: 1000;
+} 
+h4::after{
+display: block;
+text-align: center;
+font-size: 1em;
+color: rgb(255, 0, 0);
+content: "—";
+}
+
+.videos{
+ margin-left: 2rem;
+ background-color: #1f1fb5;
+}
+ 
+.videos h5{
+  text-align:center;
+  font-size: 15px;
+}
+
+button[type="button"] {
+  padding: 10px 20px;
+  background-color:  #04268a;
+  color:black;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 2rem;
+  font-weight: bold;
+  color:white;
+  box-shadow: 20px;
+}
+button[type="button"]:hover {
+  background-color: rgb(44, 144, 177);
+}
+
+/* videos section end */
+
+/* gallery section */
+
+#photos img{
+  max-width: auto;
+  max-height: 200px;
+  border-radius: 7px;
+  margin-right: 30px;
+  margin-bottom:20px;
+}
+
+#photos{
+  margin-left:40px;
+  margin-right:40px;  
+}
+
+button{
+ margin-left: 50%;
+ margin-bottom: 50px;
+}
+ 
+
+/* gallery section end */
+
 /* why section */
 
 .why_section {
@@ -404,6 +482,15 @@ form {
 .why_section a {
   background-color: #6ebca8;
   color: #fefeff;
+}
+
+.why_detail-box h3{
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.why_detail-box p{
+  text-align: justify;
+  font-size:large;
+  font-family: Arial, Helvetica, sans-serif; 
 }
 
 /* end why section */
