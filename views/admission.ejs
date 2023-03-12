@@ -37,16 +37,13 @@
 
 </head>
 
-<body class="sub_page">
-  <%- include('./common/header.ejs') %>
+<body class="admission_page">
+   <%- include('./common/header.ejs') %>
   <!-- end header section -->
 
   <div class="common_style">
-
-
-
     <!-- admission section -->
-    <section class="admission_section">
+    <!-- <section class="admission_section">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
@@ -73,21 +70,17 @@
           </div>
         </div>
       </div>
-    </section>
-
-
-
+    </section> -->
     <!-- end admission section -->
-
-
   </div>
 
   <!-- admission form -->
-
   
-    <h4>Admission Form </h4>
-    
-    <form enctype="multipart/form-data"  action="/admission" method="post">
+  <div class="container-fluid" id="admissionform">
+      <h4>Admission Form </h4>
+      <div class="row">
+        <div class="col">
+        <form enctype="multipart/form-data"  action="/admission" method="post">
       <div class="details">
          
         <div class="form-group">
@@ -173,112 +166,79 @@
 
        <button type="button" id="upload_btn">Submit</button>
   </form>
-  <script src="/script/uploadjs.js"></script>
+        </div>
+        <div class="col-md-6" id="admissionopen">
+          <img class="img-responsive" src="images/admissionopen.png" alt="image">
+        </div>
+      </div>
+    </div>
 
   <!-- admission form end -->
 
   <!-- info section -->
-  <section class="info_section layout_padding-top">
+  <section class="info_section ">
     <div class="info_logo-box">
       <h2>
-        Fanadesh
+          Branches
       </h2>
     </div>
-    <div class="container layout_padding2">
-      <div class="row">
-        <div class="col-md-3">
-          <h5>
-            About Us
-          </h5>
-          <p>
-            dolor sit amet, consectetur magna aliqua. Ut enim ad minim veniam, quisdotempor incididunt r
-          </p>
-        </div>
-        <div class="col-md-3">
-          <h5>
-            Useful Link
-          </h5>
-          <ul>
-            <li>
-              <a href="">
-                Video games
-              </a>
-            </li>
-            <li>
-              <a href="">
-                Remote control
-              </a>
-            </li>
-            <li>
-              <a href="">
-                3d controller
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <h5>
-            Contact Us
-          </h5>
-          <p>
-            dolor sit amet, consectetur magna aliqua. quisdotempor incididunt ut e
-          </p>
-        </div>
-        <div class="col-md-3">
-
-          <div class="subscribe_container">
+      <div class="container layout_padding2">
+        <div class="row">
+          <div class="col-md-3">
             <h5>
-              Newsletter
+              Charkop branch                                                                            
             </h5>
-            <div class="form_container">
-              <form action="">
-                <input type="email" placeholder="Enter your email">
-                <button type="submit">
-                  Subscribe
-                </button>
-              </form>
-            </div>
+           <p>
+            185/D-43 & 44, Veermata CHS,Sector No-1,Near Bank of Maharashtra,Charkop<br>Kandivali(W),Mumbai-400 067
+           </p>
           </div>
-
+          <div class="col-md-3">
+            <h5>
+               Borivali Branch                                                                           
+            </h5>
+           <p>
+            138/D-6, Riddhi Siddhi CHS,<br>Gorai-2,Borivali(W),<br>Mumbai - 400 092
+           </p>
+          </div>
+          <div class="col-md-3">
+            <h5>
+              Andheri Branch                                                                             
+          </h5>
+         <p>
+          40/D3,Soujanya Chs.Ltd. <br>S.V.P Mahada LayoutFour Bungalows,Andheri(W),<br>Mumbai - 400 053
+         </p>
+          </div>
+          <div class="col-md-3">
+       
+            <h5>
+              Kandivali Branch                                                                           
+          </h5>
+         <p>
+          Sadguru Krupa CHS, Building No.43, Ground Floor, 006, 
+          Shivaji Raje Complex,Old MHADA, Ekta Nagar, Kandivali (West),<br>Mumbai - 400 067
+         </p>
+            
+          </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="social_container">
-
-        <div class="social-box">
-          <a href="">
-            <img src="images/fb.png" alt="">
-          </a>
-
-          <a href="">
-            <img src="images/twitter.png" alt="">
-          </a>
-          <a href="">
-            <img src="images/linkedin.png" alt="">
-          </a>
-          <a href="">
-            <img src="images/instagram.png" alt="">
-          </a>
-        </div>
+      <div class="container">
+          <div class="social_container"> 
+            <h5> Contact Principal : HITEN PATEL : +91 9819308886/022 28671599</h5>
+            </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- end info section -->
+<!-- footer section -->
+<section class="container-fluid footer_section">
+<p>
+  Copyright &copy; 2019 All Rights Reserved By
+  <!-- <a href="https://html.design/">Free Html Templates</a> -->
+</p>
+</section>
+<!-- footer section -->
 
-  <!-- footer section -->
-  <!-- <section class="container-fluid footer_section">
-    <p>
-      Copyright &copy; 2019 All Rights Reserved By
-      <a href="https://html.design/">Free Html Templates</a>
-    </p>
-  </section> -->
-  <!-- footer section -->
-
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
 
 </body>
 

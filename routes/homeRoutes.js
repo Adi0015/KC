@@ -44,9 +44,9 @@ router
     .post(homeController.createContact)
 
 
-router 
-  .route("/enquiries")
-  .get(homeController.getEnquiries)
+// router 
+//   .route("/enquiries")
+//   .get(homeController.getEnquiries)
 
 router 
   .route("/video")
@@ -55,6 +55,11 @@ router
 router 
   .route("/gallery")
   .get(homeController.getGallery)
+  
+router 
+  .route("/enquiries")
+  .get(homeController.getEnquiries)
+  
   
 router
   .route('/enquiries/download')
