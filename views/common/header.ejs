@@ -1,50 +1,92 @@
-<div class="top_container">
-  <!-- header section strats -->
-  <header class="header_section">
-    <div class="container">
-      <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="/">
-          <span>
-            <img src="images/KClogo.png" alt="" class="img-fluid">
-          </span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="color: black;">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
-            <ul class="navbar-nav  ">
-              <li class="nav-item active">
-                <a class="nav-link" href="/"> Home <span class="sr-only">(current)</span></a>
-              </li>
-              <!-- <li class="nav-item "> -->
-                <!-- <a class="nav-link" href="/about"> About </a> -->
-              <!-- </li> -->
-
-              <li class="nav-item ">
-                <a class="nav-link" href="/admission"> Admission </a>
-              </li>
-
-              <!-- <li class="nav-item "> -->
-                <!-- <a class="nav-link" href="/Gallery">Gallery </a> -->
-              <!-- </li> -->
-
-              <li class="nav-item ">
-                <a class="nav-link" href="/video"> Video </a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="/gallery"> Gallery </a> 
-              </li> 
-
-              <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Us</a>
-              </li>
-
-            </ul>
-          </div>
-      </nav>
+<header class="bg-aqua">
+  <div class="container py-5">
+    <div class="row d-xl-flex justify-content-xl-end py-5 test">
+      <div
+        class="col-md-6 text-center text-md-start d-flex d-sm-flex d-md-flex justify-content-center align-items-center justify-content-md-start align-items-md-center justify-content-xl-end mb-4"
+      >
+        <div class="hero-back">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice"
+            viewBox="0 0 100 100"
+          >
+            <defs>
+              <style>
+                @keyframes rotate {
+                  100% {
+                    transform: rotate(360deg);
+                  }
+                }
+                .out-top {
+                  animation: rotate 20s linear infinite;
+                  transform-origin: 13px 25px;
+                }
+                .in-top {
+                  animation: rotate 10s linear infinite;
+                  transform-origin: 13px 25px;
+                }
+                .out-bottom {
+                  animation: rotate 25s linear infinite;
+                  transform-origin: 84px 93px;
+                }
+                .in-bottom {
+                  animation: rotate 15s linear infinite;
+                  transform-origin: 84px 93px;
+                }
+              </style>
+            </defs>
+            <path
+              fill="#9b5de5"
+              class="out-top"
+              d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"
+            />
+            <path
+              fill="#f15bb5"
+              class="in-top"
+              d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"
+            />
+            <path
+              fill="#00bbf9"
+              class="out-bottom"
+              d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"
+            />
+            <path
+              fill="#00f5d4"
+              class="in-bottom"
+              d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"
+            />
+          </svg>
+        </div>
+        <div style="max-width: 450px;">
+          <!-- <p class="fw-bold text-success mb-2">Special Offer</p> -->
+          <h3 class="fw-bold font-white" style="overflow: hidden;">Unlock your childs best potential&nbsp;</h3>
+          <p class="my-3 font-white font-small">
+            We are committed to nurturing your child's intellectual growth
+            and emotional well-being
+          </p>
+          <!-- <form
+            class="d-flex justify-content-center flex-wrap justify-content-md-start flex-lg-nowrap"
+            method="post"
+          >
+            <div class="my-2 me-2">
+              <input
+                class="border rounded-pill shadow-sm form-control"
+                type="email"
+                name="email"
+                placeholder="Your Email"
+              />
+            </div>
+            <div class="my-2">
+              <button class="btn btn-primary shadow" type="submit">
+                Send
+              </button>
+            </div>
+          </form> -->
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <img class="astraunot-kid" src="assets/img/astraunot.png" />
+      </div>
     </div>
-  </header>
+  </div>
+</header>

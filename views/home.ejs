@@ -1,408 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Home - Kid's Concept</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
+    <link rel="stylesheet" href="assets/css/Inter.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <!-- <link rel="stylesheet" href="assets/css/style1.css" /> -->
+  </head>
 
-<head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+  <body>
+    <%- include('./common/nav.ejs') %> <%- include('./common/header.ejs') %>
 
-  <title>Home</title>
-
-
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <!-- progress barstle -->
-  <link rel="stylesheet" href="css/css-circular-prog-bar.css">
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,600&display=swap" rel="stylesheet">
-  <!-- font wesome stylesheet -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
-
-
-
-
-  <link rel="stylesheet" href="css/css-circular-prog-bar.css">
-
-
-</head>
-
-<body>
-  <%- include('./common/header.ejs') %>
- 
-    <section class="hero_section ">
-      <div class="hero-container container">
-        <div class="hero_detail-box">
+    <section class="margin-5">
+      <div class="container py-5">
+        <div class="mx-auto" style="max-width: 900px">
+          <h2 class="fw-bold center-text mt-5"><strong>About us</strong></h2>
           <p>
-            Are You looking for the best concept in your child?<br>You have made the right approach!
+            Kids' Concept School provides a warm and loving environment in which
+            children learn through play activities. Kids' Concept School strives
+            to be a child's second home by providing them with the greatest
+            instruction and the flexibility to develop their tiny brains
+            physically and cognitively. The child's motor cohesion, social
+            adjustment, linguistic capabilities, and pre-reading/thinking
+            abilities. acquires Thus, the 'Kids' Concept' idea' assists children
+            in developing an enthusiastic play with monthly themes.
           </p>
-          <h1>
-            Kid's concept
-          </h1>
-          <!-- <div class="hero_btn-continer">
-            <a href="" class="call_to-btn btn_white-border">
-              Read More
-            </a>
-          </div> -->
-        </div>
-        <div class="hero_img-container">
-          <div>
-            <img src="images/hero1.png" alt="" widht=" 100" height="500" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-  <!-- end header section -->
-
-  <div class="common_style">
-
-    <!-- about section -->
-    <!-- <section class="about_section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="about_img-container">
-              <img src="images/about.png" alt="">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="about_detail-box">
-              <h3>
-                About our School
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              </p>
-              <div class="">
-                <a href="" class="call_to-btn btn_white-border">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-
-    <!-- end about section -->
-
-    <!-- admission section
-    <section class="admission_section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="admission_detail-box">
-              <h3>
-                Admission open
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              </p>
-              <div class="">
-                <a href="" class="call_to-btn btn_white-border">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="admission_img-container">
-              <img src="images/admission.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-
-
-    <!-- end admission section -->
-
-    <!-- why section -->
-    <section class="why_section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="why_img-container">
-              <img src="images/why.png" alt="">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="why_detail-box">
-              <h3>
-                Why to choose Kid'S Concept
-              </h3>
-              <p>
-                Kids Concept is a complete educational approach that includes a wide range of topics such as language, numeracy, social skills, and more. Emphasis on play-based learning: Kids Concept promotes play-based learning, which is recognised to be an effective approach for children to learn and retain new concepts. Age-appropriate activities and resources: Kids Concept provides age-appropriate activities and materials meant to interest and challenge children at various developmental stages. Kids Concept employs high-quality materials in their products, which can improve the learning experience while also ensuring longevity and safety.
-              </p>
-              <!-- <div class="">
-                <a href="" class="call_to-btn btn_white-border">
-                  Read More
-                </a>
-              </div> -->
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-
-    <!-- end why section -->
-
-    <!-- determine section
-    <section class="determine_section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="determine_detail-box">
-              <h3>
-                Datermine the right for you
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              </p>
-              <div class="">
-                <a href="" class="call_to-btn btn_white-border">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="determine_img-container">
-              <img src="images/determine.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-
-    <!-- end determine section -->
-
-  </div>
-
-
-  <!-- client section -->
-  <!-- <section class="client_section layout_padding">
-    <h2 class="">
-      Testimonial
-    </h2>
-    <div class="container">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                  <div class="row">
-                      <div class="col-md-3">
-                        <div class="client_img-box">
-                          <img src="images/client.png" alt="">
-                        </div>
-                      </div>
-                      <div class="col-md-9">
-                        <div class="client_detail-box">
-                          <h5>
-                            Alex Du
-                          </h5>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-              </div>
-              <div class="carousel-item">
-                  <div class="row">
-                      <div class="col-md-3">
-                        <div class="client_img-box">
-                          <img src="images/client.png" alt="">
-                        </div>
-                      </div>
-                      <div class="col-md-9">
-                        <div class="client_detail-box">
-                          <h5>
-                            Alex Du
-                          </h5>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-              </div>
-              <div class="carousel-item">
-                  <div class="row">
-                      <div class="col-md-3">
-                        <div class="client_img-box">
-                          <img src="images/client.png" alt="">
-                        </div>
-                        <div class="client_img-box">
-                          <img src="images/client.png" alt="">
-                        </div>
-                      </div>
-                      <div class="col-md-9">
-                        <div class="client_detail-box">
-                          <h5>
-                            Alex Du
-                          </h5>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-              </div>
-            </div>
-          </div>
-     
-    </div>
-  </section> -->
-
-
-  <!-- end client section -->
-
-
-    <!-- contact section
-
-    <section class="contact_section ">
-
-        <div class="container">
-         
-          <div class="row">
-            <div class="col-md-6">
-              <div class="d-flex justify-content-center d-md-block">
-                <h2>
-                  Contact Us
-                </h2>
-              </div>
-              <form action="">
-                <div class="contact_form-container">
-                  <div>
-                    <div>
-                      <input type="text" placeholder="Name">
-                    </div>
-                    <div>
-                      <input type="email" placeholder="Email">
-                    </div>
-                    <div>
-                      <input type="text" placeholder="Phone Number">
-                    </div>
-                    <div class="mt-5">
-                      <input type="text" placeholder="Message">
-                    </div>
-                    <div class="mt-5">
-                      <button type="submit">
-                        send
-                      </button>
-                    </div>
-                  </div>
+    <%- include('./common/footer.ejs') %>
     
-                </div>
-    
-              </form>
-            </div>
-            <div class="col-md-6">
-              <div class="contact_img-box">
-                <img src="images/students.jpg" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
-      <!-- end contact section -->
-      <section class="info_section ">
-        <div class="info_logo-box">
-          <h2>
-              Branches
-          </h2>
-        </div>
-          <div class="container layout_padding2">
-            <div class="row">
-              <div class="col-md-3">
-                <h5>
-                  Charkop branch                                                                            
-                </h5>
-               <p>
-                185/D-43 & 44, Veermata CHS,Sector No-1,Near Bank of Maharashtra,Charkop<br>Kandivali(W),Mumbai-400 067
-               </p>
-              </div>
-              <div class="col-md-3">
-                <h5>
-                   Borivali Branch                                                                           
-                </h5>
-               <p>
-                138/D-6, Riddhi Siddhi CHS,<br>Gorai-2,Borivali(W),<br>Mumbai - 400 092
-               </p>
-              </div>
-              <div class="col-md-3">
-                <h5>
-                  Andheri Branch                                                                             
-              </h5>
-             <p>
-              40/D3,Soujanya Chs.Ltd. <br>S.V.P Mahada LayoutFour Bungalows,Andheri(W),<br>Mumbai - 400 053
-             </p>
-              </div>
-              <div class="col-md-3">
-           
-                <h5>
-                  Kandivali Branch                                                                           
-              </h5>
-             <p>
-              Sadguru Krupa CHS, Building No.43, Ground Floor, 006, 
-              Shivaji Raje Complex,Old MHADA, Ekta Nagar, Kandivali (West),<br>Mumbai - 400 067
-             </p>
-                
-              </div>
-            </div>
-          </div>
-          <div class="container">
-              <div class="social_container"> 
-                <h5> Contact Principal : HITEN PATEL : +91 9819308886/022 28671599</h5>
-                </div>
-          </div>
-        </section>
-
-  <!-- footer section -->
-  <section class="container-fluid footer_section">
-    <p>
-      Copyright &copy; 2019 All Rights Reserved By
-      <!-- <a href="https://html.design/">Free Html Templates</a> -->
-    </p>
-  </section>
-  <!-- footer section -->
-
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-
- 
-</body>
-
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/bold-and-bright.js"></script>
+  </body>
 </html>

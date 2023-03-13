@@ -1,245 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Contacts - Kid's Concept</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Inter.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    
+    <style>
+    
+    @media (min-width: 768px) {
+      
+      
+      .form-control:not(.form-inline-label) {
+      width: 170%;
+      
+      }
 
-  <title>admission</title>
+      .form-inline-label {
+        display: inline-block;
+        width: 40%;
+        /* margin-bottom: 1rem; */
+        margin-right: 1rem;
+      }
+    
+      .form-inline-label select {
+        width: 150%;
+      }
+    
+      .row .col-md-6:nth-child(2) {
+        margin-top: 0;
+      }
+    
+      .row .col-md-6:nth-child(2) .form-control {
+        margin-top: 0.5rem;
+      }
+    
+      /* Add the following styles to place two form elements in a single row and increase the width by 20% */
+      .form-inline-label:nth-child(2),
+      .form-inline-label:nth-child(4) {
+        margin-right: 2rem;
+      }
+    
+      .form-inline-label:nth-child(2) input,
+      .form-inline-label:nth-child(4) input,
+      .form-inline-label:nth-child(2) select,
+      .form-inline-label:nth-child(4) select {
+        width: 120%;
+      }
+      #adm{
+        margin-left: 250px;
+      }
+      }
+    #adm{
+    max-width: 100%;
+    height: auto;
+}
 
 
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <!-- progress barstle -->
-  <link rel="stylesheet" href="css/css-circular-prog-bar.css">
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,600&display=swap" rel="stylesheet">
-  <!-- font wesome stylesheet -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
-
-
-
-
-  <link rel="stylesheet" href="css/css-circular-prog-bar.css">
-
-
+  </style>
 </head>
 
-<body class="admission_page">
-   <%- include('./common/header.ejs') %>
-  <!-- end header section -->
-
-  <div class="common_style">
-    <!-- admission section -->
-    <!-- <section class="admission_section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="admission_detail-box">
-              <h3>
-                Admission open
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              </p>
-              <div class="">
-                <a href="" class="call_to-btn btn_white-border">
-                  Read More
-                </a>
+<body style="background-color: rgb(228, 199, 243)">
+    <%- include('./common/nav.ejs') %>
+    <section class="py-5">
+      <div class="container py-5 ">
+          <div class="row mb-5 ">
+              <div class="col-md-8 col-xl-6 text-center mx-auto">
+                  <h2 class="fw-bold">Admission Form</h2>
+              </div>
+          </div>
+          <div class="row d-md-flex">
+              <div class="col-md-1 col-xl-4 justify-content-center align-items-center text-center">
+                  <div class="text-center">
+                    <div>
+                        <form class="p-3 p-xl-4" id="admission_form" enctype="multipart/form-data" action="/admission" method="post" >
+                            <div class="mb-3"><input class="form-control" placeholder="Student Name" type="text" id="name" name="name" required ></div>
+                            <div class="mb-3 form-inline-label"><input class="form-control" placeholder="Student Age" type="text" id="childAge" name="childAge" required ></div>
+                            <div class="mb-3 form-inline-label">
+                              <select class="form-control" placeholder="Branch" id="branch" name="branch" required >
+                                  <option value="">Choose a Branch</option>
+                                  <option value="Charkop">Charkop</option>
+                                  <option value="Andheri">Andheri</option>
+                                  <option value="Borivali">Borivali</option>
+                                  <option value="Kandivali">Kandivali</option>
+                              </select>
+                          </div>
+                          <div class="mb-3 form-inline-label">
+                              <select class="form-control" placeholder="Standard" id="standard" name="standard" required >
+                                  <option value="">Choose Class</option>
+                                  <option value="Jr. KG">Jr.KG</option>
+                                  <option value="Sr. Kg">Sr.KG</option>
+                              </select>
+                          </div>
+                          <div class="mb-3 form-inline-label">
+                              <input class="form-control" placeholder="Birthdate" type="date" id="birthdate" name="birthdate" required >
+                          </div>
+                              
+                            <div class="mb-3"><input class="form-control" placeholder="Father's Name" type="text" id="fatherName" name="fatherName"  required ></div>
+                            <div class="mb-3"><input class="form-control" placeholder="Father's Occupation" type="text" id="fatheroccupation" name="fatheroccupation"  required ></div>
+                            <div class="mb-3"><input class="form-control" placeholder="Father's Phone No." type="tel" id="fatherMobileNumber" name="fatherMobileNumber"  required ></div>
+                            <div class="mb-3"><input class="form-control" placeholder="Mother's Name" type="text" id="motherName" name="motherName"  required ></div>
+                            <div class="mb-3"><input class="form-control" placeholder="Mother's Occupation" type="text" id="motheroccupation" name="motheroccupation"required ></div>
+                            <div class="mb-3"><input class="form-control" placeholder="Mother's Phone No." type="tel" id="motherMobileNumber" name="motherMobileNumber"  required ></div>
+                            <div class="mb-3"><input class="form-control" placeholder="Email" type="email" id="email" name="email" required ></div>
+                            <div class="mb-3"><input class="form-control" placeholder="Email" type="file" id="childPicture" name="childPicture" accept="image/jpeg, image/png" required ></div>
+                            <div class="mb-3"><input class="form-control" placeholder="Email" type="file" id="parentPicture" name="parentPicture" accept="image/jpeg, image/png" required ></div>
+                            <div><button class="btn btn-primary shadow d-block w-40 " type="button" id="upload_btn" style="display: flex;">Send </button></div>
+                            
+                        </form>
+                    </div>
+                </div>
+              </div>
+            
+              <div class="col-md-5">
+                <img src="/images/why.png" alt="adm" id="adm">
               </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="admission_img-container">
-              <img src="images/admission.png" alt="">
-            </div>
-          </div>
         </div>
-      </div>
-    </section> -->
-    <!-- end admission section -->
-  </div>
-
-  <!-- admission form -->
-  
-  <div class="container-fluid" id="admissionform">
-      <h4>Admission Form </h4>
-      <div class="row">
-        <div class="col">
-        <form enctype="multipart/form-data"  action="/admission" method="post">
-      <div class="details">
-         
-        <div class="form-group">
-          <label for="name">Child Name:</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="childAge">Child Age:</label>
-          <input type="text" id="childAge" name="childAge" required>
-        </div>
-     
-        <div class="form-group">
-          <label for="birthdate">Child Birthdate:</label>
-          <input type="date" id="birthdate" name="birthdate" required>
-        </div>
-
-        <div class="form-group">
-          <label for="branch">Branch:</label>
-          <select id="branch" name="branch" required>
-            <option value="">Choose a Branch</option>
-            <option value="Charkop">Charkop</option>
-            <option value="Andheri">Andheri</option>
-            <option value="Borivali">Borivali</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="standard">Class:</label>
-          <select id="standard" name="standard" required>
-            <option value="">Choose Class</option>
-            <option value="Jr. KG">Jr.KG</option>
-            <option value="Sr. Kg">Sr.KG</option>
-          </select>
-        </div>
-      
-        <div class="form-group">
-          <label for="fatherName">Father Name:</label>
-          <input type="text" id="fatherName" name="fatherName" required>
-        </div>
-
-        <div class="form-group">
-          <label for="fatheroccupation">Father Occupation:</label>
-          <input type="text" id="fatheroccupation" name="fatheroccupation" required>
-        </div>
-
-        <div class="form-group">
-          <label for="fatherMobileNumber">Father Mobile Number:</label>
-          <input type="tel" id="fatherMobileNumber" name="fatherMobileNumber" required>
-        </div>
-      
-        <div class="form-group">
-          <label for="motherName">Mother Name:</label>
-          <input type="text" id="motherName" name="motherName" required>
-        </div>
-
-        <div class="form-group">
-          <label for="motheroccupation">Mother Occupation:</label>
-          <input type="text" id="motheroccupation" name="motheroccupation" required>
-        </div>
-
-        <div class="form-group">
-          <label for="motherMobileNumber">Mother Mobile Number:</label>
-          <input type="tel" id="motherMobileNumber" name="motherMobileNumber" required>
-        </div>
-      
-        <div class="form-group">
-        <label for="name">Email:</label>
-        <input type="email" id="email" name="email" required>
-        </div>
-
-       <div class="form-group">
-        <label for="childPicture">Child Picture:</label>
-        <input type="file" id="childPicture" name="childPicture" accept="image/jpeg, image/x-png , image/jpg" multiple>
-       </div>
-
-       <div class="form-group">
-       <label for="parentPicture">Parent Picture :</label>
-       <input type="file" id="parentPicture" name="parentPicture" accept="image/jpeg, image/x-png , image/jpg" multiple>
-       </div>
-
-       </div>
-
-       <button type="button" id="upload_btn">Submit</button>
-  </form>
-        </div>
-        <div class="col-md-6" id="admissionopen">
-          <img class="img-responsive" src="images/admissionopen.png" alt="image">
-        </div>
-      </div>
-    </div>
-
-  <!-- admission form end -->
-
-  <!-- info section -->
-  <section class="info_section ">
-    <div class="info_logo-box">
-      <h2>
-          Branches
-      </h2>
-    </div>
-      <div class="container layout_padding2">
-        <div class="row">
-          <div class="col-md-3">
-            <h5>
-              Charkop branch                                                                            
-            </h5>
-           <p>
-            185/D-43 & 44, Veermata CHS,Sector No-1,Near Bank of Maharashtra,Charkop<br>Kandivali(W),Mumbai-400 067
-           </p>
-          </div>
-          <div class="col-md-3">
-            <h5>
-               Borivali Branch                                                                           
-            </h5>
-           <p>
-            138/D-6, Riddhi Siddhi CHS,<br>Gorai-2,Borivali(W),<br>Mumbai - 400 092
-           </p>
-          </div>
-          <div class="col-md-3">
-            <h5>
-              Andheri Branch                                                                             
-          </h5>
-         <p>
-          40/D3,Soujanya Chs.Ltd. <br>S.V.P Mahada LayoutFour Bungalows,Andheri(W),<br>Mumbai - 400 053
-         </p>
-          </div>
-          <div class="col-md-3">
-       
-            <h5>
-              Kandivali Branch                                                                           
-          </h5>
-         <p>
-          Sadguru Krupa CHS, Building No.43, Ground Floor, 006, 
-          Shivaji Raje Complex,Old MHADA, Ekta Nagar, Kandivali (West),<br>Mumbai - 400 067
-         </p>
-            
-          </div>
-        </div>
-      </div>
-      <div class="container">
-          <div class="social_container"> 
-            <h5> Contact Principal : HITEN PATEL : +91 9819308886/022 28671599</h5>
-            </div>
-      </div>
     </section>
-
-<!-- footer section -->
-<section class="container-fluid footer_section">
-<p>
-  Copyright &copy; 2019 All Rights Reserved By
-  <!-- <a href="https://html.design/">Free Html Templates</a> -->
-</p>
-</section>
-<!-- footer section -->
-
-<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-
+    <%- include('./common/footer.ejs') %>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/bold-and-bright.js"></script>
 </body>
 
 </html>

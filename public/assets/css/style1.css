@@ -1,0 +1,18 @@
+.logoname{
+    font-weight: bold;
+    font-family: 'comic sans ms';
+}
+h2{
+  text-align: center;
+}
+h2::after{
+    display: block;
+    text-align: center;
+    font-size: 1em;
+    color: rgb(217, 0, 255);
+    content: "—";
+}
+section p{
+    text-align: center;
+    
+}
