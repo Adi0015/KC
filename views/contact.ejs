@@ -32,25 +32,25 @@
                     <div class="row g-0">
                         <div class="col-lg-6 wow fadeIn " data-wow-delay="0.1s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <form>
+                                <form action="/contact" method="post">
                                     <div class="row g-3">
                                         <div class="col-sm-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="name"
+                                                <input type="text" class="form-control border-0" id="name" name="parent_name"
                                                     placeholder="Your Name">
                                                 <label for="name">Your Name</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-floating">
-                                                <input type="tel" class="form-control border-0" id="phone"
+                                                <input type="tel" class="form-control border-0" id="phone" name="parent_phone"
                                                     placeholder="Your Phone">
                                                 <label for="phone">Your Phone</label>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating">
-                                                <input type="email" class="form-control border-0" id="email"
+                                                <input type="email" class="form-control border-0" id="email" name="parent_email"
                                                     placeholder="Your Email">
                                                 <label for="email">Your Email</label>
                                             </div>
@@ -58,7 +58,7 @@
                                         <div class="col-12">
                                             <div class="form-floating">
                                                 <textarea class="form-control border-0"
-                                                    placeholder="Leave a message here" id="message"
+                                                    placeholder="Leave a message here" id="message"name="message"
                                                     style="height: 100px"></textarea>
                                                 <label for="message">Message</label>
                                             </div>

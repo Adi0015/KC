@@ -31,19 +31,19 @@
                     <div class="row g-0 d-flex justify-content-around">
                         <div class="col-lg-6 wow fadeIn " data-wow-delay="0.1s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <form>
+                                <form enctype="multipart/form-data" action="/admission" method="post">
                                     <div class="row g-3">
                                         <!-- child details -->
                                         <div class="col-12">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="studentName"
+                                                <input type="text" class="form-control border-0" id="studentName" name="name"
                                                     placeholder="Student Name" required>
                                                 <label for="studentName">Student Name</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="studentAge"
+                                                <input type="text" class="form-control border-0" id="studentAge" name="childAge"
                                                     placeholder="Student Name" required>
                                                 <label for="studentAge">Student Age</label>
                                             </div>
@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-floating">
-                                                <select class="form-control  border-0" placeholder="Standard"
+                                                <select class="form-control  border-0" placeholder="Standard" 
                                                     id="standard" name="standard" required>
                                                     <option value="">Choose Class</option>
                                                     <option value="Jr.KG">Jr.KG</option>
@@ -83,49 +83,49 @@
                                         <div class="col-12">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="fathername"
-                                                    placeholder="Father Name">
+                                                    name="fatherName" placeholder="Father Name">
                                                 <label for="fathername">Father Name</label>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="fatheroccupation"
-                                                    placeholder="Father's Occupation">
+                                                    name="fatheroccupation" placeholder="Father's Occupation">
                                                 <label for="fatheroccupation">Father's Occupation</label>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="mothername"
-                                                    placeholder="Mother Name">
+                                                    name="motherName" placeholder="Mother Name">
                                                 <label for="mothername">Mother Name</label>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="motheroccupation"
-                                                    placeholder="Mother's Occupation">
+                                                    name="motheroccupation" placeholder="Mother's Occupation">
                                                 <label for="motheroccupation">Mother's Occupation</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-floating">
                                                 <input type="tel" class="form-control border-0" id="phone"
-                                                    placeholder="Contact No." required>
+                                                    name="fatherMobileNumber" placeholder="Contact No." required>
                                                 <label for="phone">Contact No.</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-floating">
                                                 <input type="tel" class="form-control border-0" id="alternatephone"
-                                                    placeholder="Alternate Contact No.">
+                                                    name="motherMobileNumber" placeholder="Alternate Contact No.">
                                                 <label for="alternatephone">Alternate Contact No.</label>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating">
                                                 <input type="email" class="form-control border-0" id="email"
-                                                    placeholder="Your Email">
+                                                    name="email" placeholder="Your Email">
                                                 <label for="email">Your Email</label>
                                             </div>
                                         </div>
@@ -141,10 +141,10 @@
                                         <div class="col-12">
                                             <div class="form-floating">
                                                 <input class="form-control border-0" placeholder="Student Photo"
-                                                    type="file" id="childPicture" name="childPicture"
+                                                    type="file" id="childPicture" name="parentPicture"
                                                     accept="image/jpeg, image/png" required>
 
-                                                <label for="childPicture">Student Photo</label>
+                                                <label for="childPicture">Parent Photo</label>
                                             </div>
                                         </div>
                                         <div class="col-12">
