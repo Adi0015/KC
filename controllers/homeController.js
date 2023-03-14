@@ -17,6 +17,7 @@ exports.getHome = async (req, res) => {
 exports.getAdmission = async (req, res) => {
   res.status(200).render("admission", { page: "admission" });
 };
+
 exports.getVideos = async (req, res) => {
   res.status(200).render("video", { page: "video" });
 };

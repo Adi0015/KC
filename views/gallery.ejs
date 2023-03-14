@@ -1,135 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-
-  <title>gallery</title>
-
-
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <!-- progress barstle -->
-  <link rel="stylesheet" href="css/css-circular-prog-bar.css">
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,600&display=swap" rel="stylesheet">
-  <!-- font wesome stylesheet -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
-
-
-
-
-  <link rel="stylesheet" href="css/css-circular-prog-bar.css">
-
-
+    <%-include("./common/header.ejs")%>
 </head>
 
-<body class="sub_page">
-  <%- include('./common/header.ejs') %>
-  
-  <div class="container-fluid" id="photos">
-    <h4>Photos</h4>
-   
-      <img src="KCimages/img1.jpg" alt="image1">
-      <img src="KCimages/img2.jpg" alt="image2">
-      <img src="KCimages/img4.jpg" alt="image4">
-      <img src="KCimages/img5.jpg" alt="image5">
-      <img src="KCimages/img3.jpg" alt="image3">
-      <img src="KCimages/img9.jpg" alt="image9">
-      <img src="KCimages/img6.jpg" alt="image6">
-      <img src="KCimages/img7.jpg" alt="image7">
-      <img src="KCimages/img10.jpg" alt="image10">
-      <img src="KCimages/img11.jpg" alt="image11">
-      <img src="KCimages/img12.jpg" alt="image12">
-      <img src="KCimages/img13.jpg" alt="image13">
-      <img src="KCimages/img14.jpg" alt="image14">
-      <img src="KCimages/img15.jpg" alt="image15">
-      <img src="KCimages/img16.jpg" alt="image16">
-      <img src="KCimages/img17.jpg" alt="image17">
-      <img src="KCimages/img18.jpg" alt="image18">
-      <img src="KCimages/img19.jpg" alt="image19">
-      <img src="KCimages/img20.jpg" alt="image20">
-      <img src="KCimages/img21.jpg" alt="image21">
-      <img src="KCimages/img22.jpg" alt="image22">
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <%- include('./common/nav.ejs', { activePage: 'gallery' }) %>
+        <!-- Navbar End -->
+
+
+
+        <!-- Classes Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Gallery</h1>
+                    <!-- <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
+                        eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p> -->
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light w-100 mx-auto p-3">
+                                <img class="img-fluid" src="img/KC-gallery-1.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light w-100 mx-auto p-3">
+                                <img class="img-fluid" src="img/KC-gallery-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light w-100 mx-auto p-3">
+                                <img class="img-fluid" src="img/KC-gallery-3.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light w-100 mx-auto p-3">
+                                <img class="img-fluid" src="img/KC-gallery-4.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light w-100 mx-auto p-3">
+                                <img class="img-fluid" src="img/KC-gallery-5.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light w-100 mx-auto p-3">
+                                <img class="img-fluid" src="img/KC-gallery-6.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light w-100 mx-auto p-3">
+                                <img class="img-fluid" src="img/KC-gallery-7.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light w-100 mx-auto p-3">
+                                <img class="img-fluid" src="img/KC-gallery-8.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light w-100 mx-auto p-3">
+                                <img class="img-fluid" src="img/KC-gallery-9.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Classes End -->
+
+        <!-- Footer Start -->
+        <%-include("./common/footer.ejs")%>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-    <section>
-      <button type="button"> Add more + </button>
-    </section>
-    <section class="info_section ">
-      <div class="info_logo-box">
-        <h2>
-            Branches
-        </h2>
-      </div>
-        <div class="container layout_padding2">
-          <div class="row">
-            <div class="col-md-3">
-              <h5>
-                Charkop branch                                                                            
-              </h5>
-             <p>
-              185/D-43 & 44, Veermata CHS,Sector No-1,Near Bank of Maharashtra,Charkop<br>Kandivali(W),Mumbai-400 067
-             </p>
-            </div>
-            <div class="col-md-3">
-              <h5>
-                 Borivali Branch                                                                           
-              </h5>
-             <p>
-              138/D-6, Riddhi Siddhi CHS,<br>Gorai-2,Borivali(W),<br>Mumbai - 400 092
-             </p>
-            </div>
-            <div class="col-md-3">
-              <h5>
-                Andheri Branch                                                                             
-            </h5>
-           <p>
-            40/D3,Soujanya Chs.Ltd. <br>S.V.P Mahada LayoutFour Bungalows,Andheri(W),<br>Mumbai - 400 053
-           </p>
-            </div>
-            <div class="col-md-3">
-         
-              <h5>
-                Kandivali Branch                                                                           
-            </h5>
-           <p>
-            Sadguru Krupa CHS, Building No.43, Ground Floor, 006, 
-            Shivaji Raje Complex,Old MHADA, Ekta Nagar, Kandivali (West),<br>Mumbai - 400 067
-           </p>
-              
-            </div>
-          </div>
-        </div>
-        <div class="container">
-            <div class="social_container"> 
-              <h5> Contact Principal : HITEN PATEL : + 919819308886/022 28671599</h5>
-              </div>
-        </div>
-      </section>
-  
-  <!-- footer section -->
-  <section class="container-fluid footer_section">
-  <p>
-    Copyright &copy; 2019 All Rights Reserved By
-    <!-- <a href="https://html.design/">Free Html Templates</a> -->
-  </p>
-  </section>
-  <!-- footer section -->
-  </body>
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
- 
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

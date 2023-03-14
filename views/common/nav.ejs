@@ -1,41 +1,18 @@
-<nav
-      class="navbar navbar-light navbar-expand-md sticky-top navbar-shrink py-3"
-      id="mainNav"
-    >
-      <div class="container">
-
-        <img src="assets/img/KClogo.png" alt="logo" height="70px" class="mt-1">
-
-       <span class="logoname">Kid's Concept</span></a>
-          <button
-          data-bs-toggle="collapse"
-          class="navbar-toggler"
-          data-bs-target="#navcol-1"
-        >
-          <span class="visually-hidden">Toggle navigation</span
-          ><span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navcol-1">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link " href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="gallery">Gallery</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/video">Videos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admission">Admission</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact">Contacts</a>
-            </li>
-          </ul>
-          <!-- <a class="btn btn-primary shadow" role="button" href="signup"
-            >Contact Us</a
-          > -->
-        </div>
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+  <a href="index.html" class="navbar-brand">
+      <h1 class="m-0 text-primary"><i class="fa KCLogo me-3"></i>Kid's Concept</h1>
+  </a>
+  <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav mx-auto">
+          <a href="/" class="nav-item nav-link <%= activePage === 'home' ? 'active' : '' %>">Home</a>
+          <!-- <a href="about.html" class="nav-item nav-link <%= activePage === 'about' ? 'active' : '' %>">About Us</a> -->
+          <a href="/gallery" class="nav-item nav-link <%= activePage === 'gallery' ? 'active' : '' %>">Gallery</a>
+          <a href="/video" class="nav-item nav-link <%= activePage === 'video' ? 'active' : '' %>">Video</a>
+          <a href="/admission" class="nav-item nav-link <%= activePage === 'admission' ? 'active' : '' %>">Admission</a>
+          <a href="/contact" class="nav-item nav-link <%= activePage === 'contact' ? 'active' : '' %>">Contact Us</a>
       </div>
-    </nav>
+  </div>
+</nav>
