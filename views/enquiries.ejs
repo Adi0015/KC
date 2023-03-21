@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enquiry List</title>
+  </head>
+  <body>
+    <section>
+      <h1>Enquiry List</h1>
+    <form method="GET" action="/enquiries/download">
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" name="startDate">
+
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" name="endDate">
+
+      <button type="submit">Filter</button>
+    </form>
+<!-- 
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Parent Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% enquiries.forEach(enquiry => { %>
+          <tr>
+            <td><%= (enquiry.date.getMonth()+1) + '/' + enquiry.date.getDate() + '/' + enquiry.date.getFullYear() %></td>
+            <td><%= enquiry.parent_name %></td>
+            <td><%= enquiry.email %></td>
+            <td><%= enquiry.phone %></td>
+            <td><%= enquiry.message %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table> -->
+
+    <% if (enquiries.length > 0) { %>
+      <a href="/enquiries/download?startDate=<%= startDate %>&endDate=<%= endDate %>">Download Enquiries</a>
+    <% } %>
+    </section>
+     <section>
+      <h1>Upload Images</h1>
+      <form method="POST" enctype="multipart/form-data" action="/enquiries">
+        <input type="file" name="image1" id="image1" accept="image/jpeg, image/png" />
+        <!-- <input type="file" name="image2" id="image2" accept="image/jpeg, image/png" />
+        <input type="file" name="image3" id="image3" accept="image/jpeg, image/png" />
+        <input type="file" name="image4" id="image4" accept="image/jpeg, image/png" />
+        <input type="file" name="image5" id="image5" accept="image/jpeg, image/png" />
+        <input type="file" name="image6" id="image6" accept="image/jpeg, image/png" />
+        <input type="file" name="image7" id="image7" accept="image/jpeg, image/png" />
+        <input type="file" name="image8" id="image8" accept="image/jpeg, image/png" />
+        <input type="file" name="image9" id="image9" accept="image/jpeg, image/png" /> -->
+        <button type="button" id="upload_btn">Submit</button>
+      </form>
+      <script src="\script\syncImages.js"></script>
+    </section>
+    
+     
+    
+
+    <section>
+
+      <h1>Upload Videos</h1>
+
+      <div class="row">
+        <div class="col">
+          <input type="file" placeholder="Add video" id="video" name="video" accept="video/mp4">
+        </div>
+        <div class="col">
+          <input type="file" placeholder="Add video" id="video" name="video" accept="video/mp4">
+        </div>
+        <div class="col">
+          <input type="file" placeholder="Add video" id="video" name="video" accept="video/mp4">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <input type="file" placeholder="Add video" id="video" name="video" accept="video/mp4">
+        </div>
+        <div class="col">
+          <input type="file" placeholder="Add video" id="video" name="video" accept="video/mp4">
+        </div>
+        <div class="col">
+          <input type="file" placeholder="Add video" id="video" name="video" accept="video/mp4">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <input type="file" placeholder="Add video" id="video" name="video" accept="video/mp4">
+        </div>
+        <div class="col">
+          <input type="file" placeholder="Add video" id="video" name="video" accept="video/mp4">
+        </div>
+        <div class="col">
+          <input type="file" placeholder="Add video" id="video" name="video" accept="video/mp4">
+        </div>
+      </div>
+      
+    </section>
+  </body>
+</html>

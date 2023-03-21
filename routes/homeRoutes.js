@@ -2,19 +2,34 @@ const express = require('express');
 const path = require('path')
 const homeController = require('../controllers/homeController');
 
-const fs = require("fs");
+
+
 
 
 const multer = require("multer");
+const { log } = require('console');
 const storage = multer.diskStorage({
   destination: (req, res, cb) => {
     cb(null, "./public/uploadImages");
   },
   filename: (req, file, cb) => {
+    console.log(file);
     cb(null, file.originalname);
   },
 });
 const upload = multer({ storage: storage });
+
+const galleryStorage = multer.diskStorage({
+  destination: (req, res, cb) => {
+    cb(null, "./public/img/gallery");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+const galleryUpload = multer({ storage: galleryStorage });
+
+
 
 
 const router = express.Router();
@@ -28,14 +43,14 @@ router
     .get(homeController.getAdmission)
     .post(upload.fields([{ name: 'childPicture', maxCount: 1 }, { name: 'parentPicture', maxCount: 1 }]), homeController.createAdmisson);
 
-router
-    .route("/registration")
-    .get(homeController.getRegistration);
+// router
+//     .route("/registration")
+//     .get(homeController.getRegistration);
 
 
-router
-    .route("/activity")
-    .get(homeController.getActivity);
+// router
+//     .route("/activity")
+//     .get(homeController.getActivity);
     
 
 router
@@ -56,9 +71,17 @@ router
   .route("/gallery")
   .get(homeController.getGallery)
   
+  
 router 
   .route("/enquiries")
   .get(homeController.getEnquiries)
+  .post(galleryUpload.array('image1'), (req, res) => {
+    // Handle the uploaded images here
+    console.log(req.files); 
+
+    res.status(200).send('Images uploaded successfully');
+});
+  
   
   
 router

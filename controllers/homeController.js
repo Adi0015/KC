@@ -13,15 +13,12 @@ exports.getHome = async (req, res) => {
     res.status(404).render("404", { content: "default" });
   }
 }
-
 exports.getAdmission = async (req, res) => {
   res.status(200).render("admission", { page: "admission" });
 };
-
 exports.getVideos = async (req, res) => {
   res.status(200).render("video", { page: "video" });
 };
-
 exports.getGallery = async (req, res) => {
   res.status(200).render("gallery", { page: "gallery" });
 };
@@ -64,10 +61,10 @@ exports.createAdmisson = async (req, res) => {
     motherMobileNumber,
     email,
   } = req.body;
-  console.log(req.files.childPicture);
+  // console.log(req.files.childPicture);
   const childPicture = req.files.childPicture[0].originalname;
   const parentPicture = req.files.parentPicture[0].originalname;
-  console.log(childPicture);
+  // console.log(childPicture);
   
   try {
     // Save admission to database
@@ -95,12 +92,13 @@ exports.createAdmisson = async (req, res) => {
     res.status(500).render('404');
   }
 };
-exports.getActivity = async (req, res) => {
-  res.status(200).render("activity", { page: "activity" });
-};
-exports.getRegistration = async (req, res) => {
-  res.status(200).render("registration", { page: "registration" });
-};
+
+// exports.getActivity = async (req, res) => {
+//   res.status(200).render("activity", { page: "activity" });
+// };
+// exports.getRegistration = async (req, res) => {
+//   res.status(200).render("registration", { page: "registration" });
+// };
 
 exports.getEnquiries = async (req, res) => {
   try {
@@ -163,3 +161,4 @@ exports.downloadEnquiries = async (req, res) => {
     res.render('404')
   }
 }
+

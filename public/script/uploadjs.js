@@ -1,5 +1,3 @@
-
-
 let uploadBtn = document.getElementById("upload_btn");
 
 uploadBtn.addEventListener("click", () => {
@@ -11,12 +9,13 @@ uploadBtn.addEventListener("click", () => {
     let t = Date.now()
     let imgNameChild = t + "-child.jpg" 
     let imgNameParent = t + "-parent.jpg" 
-    // console.log(childpic.files[0]);
-  
+    console.log(childpic.files[0]);
+    
     let newImageChild = new File([childpic.files[0]], `${imgNameChild}`);
     let newImageParent = new File([parpic.files[0]], `${imgNameParent}`);
-    
     console.log(newImageChild);
+    alert(imgNameChild)
+    // console.log(newImageChild);
     let formData = new FormData();
 
     
@@ -42,8 +41,8 @@ uploadBtn.addEventListener("click", () => {
       method: "POST",
       body: formData,
     })
-      // .then((res) => document.location.href="/")
-      .then((res) => console.log(res))
+      .then((res) => document.location.href="/")
+      // .then((res) => console.log(res))
       .catch((err) => console.log(err));
   }
 
