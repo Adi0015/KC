@@ -64,6 +64,7 @@ exports.createAdmisson = async (req, res) => {
   // console.log(req.files.childPicture);
   const childPicture = req.files.childPicture[0].originalname;
   const parentPicture = req.files.parentPicture[0].originalname;
+  const birthCertificate =req.files.birthCertificate[0].originalname;
   // console.log(childPicture);
   
   try {
@@ -83,7 +84,9 @@ exports.createAdmisson = async (req, res) => {
       email,
       childPicture,
       parentPicture,
+      birthCertificate
     );
+    
     const data = await admit.save();
 
     res.status(200).redirect('/');

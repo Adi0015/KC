@@ -43,6 +43,26 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-floating">
+                                                <input class="form-control  border-0" placeholder="Birthdate"
+                                                    type="date" id="birthdate" name="birthdate" onchange="calculateAge(this.value)" required>
+                                                <label for="birthdate">Choose Birthdate</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <script>
+                                            function calculateAge(birthdate) {
+                                                var today = new Date();
+                                                var birthdate = new Date(birthdate);
+                                                var age = today.getFullYear() - birthdate.getFullYear();
+                                                var m = today.getMonth() - birthdate.getMonth();
+                                                if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+                                                    age--;
+                                                }
+                                                document.getElementById("childAge").value = age;
+                                            }
+                                        </script>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
                                                 <input type="text" class="form-control border-0" id="childAge" name="childAge"
                                                     placeholder="Student Name" required>
                                                 <label for="studentAge">Student Age</label>
@@ -72,13 +92,7 @@
                                                 <label for="standard">Choose Class</label>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input class="form-control  border-0" placeholder="Birthdate"
-                                                    type="date" id="birthdate" name="birthdate" required>
-                                                <label for="birthdate">Choose Birthdate</label>
-                                            </div>
-                                        </div>
+                                        
                                         <!-- father details -->
                                         <div class="col-12">
                                             <div class="form-floating">
@@ -148,6 +162,15 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
+                                            <div class="form-floating">
+                                                <input class="form-control border-0" placeholder="Birth Certificate"
+                                                    type="file" id="birthCertificate" name="birthCertificate"
+                                                    accept="image/jpeg, image/png" required>
+
+                                                <label for="parentPicture">Birth Certificate Photo</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
                                             <button class="btn btn-primary w-100 py-3" type="button" id="upload_btn" >Submit</button>
                                         </div>
                                     </div>
@@ -166,7 +189,7 @@
         <!-- Footer End -->
 
         <!-- Back to Top -->
-        <a href="/" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <a href="/admission" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
@@ -176,6 +199,7 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/script/uploadjs.js"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>

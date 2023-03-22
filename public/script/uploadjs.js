@@ -3,24 +3,29 @@ let uploadBtn = document.getElementById("upload_btn");
 uploadBtn.addEventListener("click", () => {
   let parpic = document.getElementById("parentPicture");
   let childpic = document.getElementById("childPicture");
-  if (parpic.value.length === 0 && childpic.value.length === 0) {
+  let birthcer =document.getElementById("birthCertificate")
+  
+  if (parpic.value.length === 0 && childpic.value.length === 0 && birthcer.value.length === 0 ) {
     alert("Please Upload a file");
   } else {
     let t = Date.now()
     let imgNameChild = t + "-child.jpg" 
     let imgNameParent = t + "-parent.jpg" 
+    let imgBirthCer = t + "-birthCertificate.jpg"
     console.log(childpic.files[0]);
     
     let newImageChild = new File([childpic.files[0]], `${imgNameChild}`);
     let newImageParent = new File([parpic.files[0]], `${imgNameParent}`);
-    console.log(newImageChild);
-    alert(imgNameChild)
+    let newImageBirthCer = new File([birthcer.files[0]],`${imgBirthCer}`)
+    // console.log(newImageChild);
+    // alert(imgNameChild)
     // console.log(newImageChild);
     let formData = new FormData();
 
     
     formData.append("childPicture", newImageChild);
     formData.append("parentPicture", newImageParent);
+    formData.append("birthCertificate", newImageBirthCer);
     formData.append("name",document.getElementById("name").value)
     formData.append("email",document.getElementById("email").value)
     formData.append("childAge",document.getElementById("childAge").value)
@@ -37,6 +42,7 @@ uploadBtn.addEventListener("click", () => {
         
     document.getElementById("childPicture").value = null;
     document.getElementById("parentPicture").value = null;
+    document.getElementById("birthCertificate").value = null;
     fetch("/admission", {
       method: "POST",
       body: formData,

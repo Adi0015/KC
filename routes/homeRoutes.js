@@ -41,27 +41,15 @@ router
 router
     .route("/admission")
     .get(homeController.getAdmission)
-    .post(upload.fields([{ name: 'childPicture', maxCount: 1 }, { name: 'parentPicture', maxCount: 1 }]), homeController.createAdmisson);
-
-// router
-//     .route("/registration")
-//     .get(homeController.getRegistration);
+    .post(upload.fields([{ name: 'childPicture', maxCount: 1 }, { name: 'parentPicture', maxCount: 1 },{ name :'birthCertificate', maxcount:1}]), homeController.createAdmisson);
 
 
-// router
-//     .route("/activity")
-//     .get(homeController.getActivity);
-    
 
 router
     .route("/contact")
     .get(homeController.getContact)
     .post(homeController.createContact)
 
-
-// router 
-//   .route("/enquiries")
-//   .get(homeController.getEnquiries)
 
 router 
   .route("/video")
@@ -72,37 +60,33 @@ router
   .get(homeController.getGallery)
   
   
-router 
-  .route("/enquiries")
+  router
+  .route('/enquiries')
   .get(homeController.getEnquiries)
-  .post(galleryUpload.array('image1'), (req, res) => {
+  .post(galleryUpload.fields([
+    { name: 'image1', maxCount: 1 },
+    { name: 'image2', maxCount: 1 },
+    { name: 'image3', maxCount: 1 },
+    { name: 'image4', maxCount: 1 },
+    { name: 'image5', maxCount: 1 },
+    { name: 'image6', maxCount: 1 },
+    { name: 'image7', maxCount: 1 },
+    { name: 'image8', maxCount: 1 },
+    { name: 'image9', maxCount: 1 },
+  ]), (req, res) => {
     // Handle the uploaded images here
-    console.log(req.files); 
+    console.log(req.files);
 
-    res.status(200).send('Images uploaded successfully');
-});
-  
+    // res.status(200).send('Images uploaded successfully');
+  });
+
+
   
   
 router
   .route('/enquiries/download')
   .get(homeController.downloadEnquiries)
 
-//     .route("/admission")
-//     .get(admissionController.getPage);
-
-// router
-//     .route("/registration")
-//     .get(registrationController.getPage);
-
-// router
-//     .route("/activity")
-//     .get(activityController.getPage);
-    
-
-// router
-//     .route("/contact")
-//     .get(contactController.getPage);
 
 router.use(express.static(path.join(__dirname, 'public')))
 
