@@ -1,7 +1,7 @@
 const Enquiry = require('../models/enquiry')
-const Admission = require('../models/admission.js')
-const fs = require('fs');
-const path = require('path');
+const Admission = require('../models/admission')
+const Caption = require('../models/imageCaption')
+
 const db = require('../lib/db')
 const excel = require('exceljs')
 
@@ -20,7 +20,18 @@ exports.getVideos = async (req, res) => {
   res.status(200).render("video", { page: "video" });
 };
 exports.getGallery = async (req, res) => {
-  res.status(200).render("gallery", { page: "gallery" });
+  
+    try {
+      let sql = `SELECT * FROM gallery;`;
+      const [rows] = await db.execute(sql);
+      
+      res.render('gallery', { labels: rows });
+    } catch (error) {
+      console.log(error);
+      res.render('404');
+    }
+  
+  // res.status(200).render("gallery", { page: "gallery" });
 };
 exports.getContact = async (req, res) => {
   res.status(200).render("contact", { page: "contact" });
@@ -45,7 +56,24 @@ exports.createContact = async (req, res) => {
     res.status(500).render('404')
   }
 };
-
+exports.newImgCaptions =async (req,res) => {
+  const{
+    id,
+    label
+  }=req.body;
+  // console.log(id);
+  // console.log(label);
+  try {
+    const cap = new Caption(
+      id,
+      label,
+    );
+    const data = await cap.save();
+  } catch (error) {
+    console.log(error);
+    res.status(500).render('404');
+  }
+};
 exports.createAdmisson = async (req, res) => {
   const {
     name,

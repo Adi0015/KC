@@ -63,6 +63,7 @@ router
   router
   .route('/enquiries')
   .get(homeController.getEnquiries)
+  // .post(homeController.newcaptions)
   .post(galleryUpload.fields([
     { name: 'image1', maxCount: 1 },
     { name: 'image2', maxCount: 1 },
@@ -73,12 +74,8 @@ router
     { name: 'image7', maxCount: 1 },
     { name: 'image8', maxCount: 1 },
     { name: 'image9', maxCount: 1 },
-  ]), (req, res) => {
-    // Handle the uploaded images here
-    console.log(req.files);
-
-    // res.status(200).send('Images uploaded successfully');
-  });
+  ]),homeController.newImgCaptions);
+  
 
 
   
