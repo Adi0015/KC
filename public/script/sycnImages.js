@@ -13,6 +13,9 @@ uploadBtn.addEventListener("click", () => {
       formData.append(`image${i}`, input.files[0], filename);
     }
   }
+  // for (let i = 1; i <= 9; i++) {
+  //   formData.append(`${i}`,document.getElementById(`imc${i}`).value)
+  // }
     
   // Submit the form data to the server using fetch
   fetch("/enquiries", {
