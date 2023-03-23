@@ -57,18 +57,18 @@ exports.createContact = async (req, res) => {
   }
 };
 exports.newImgCaptions =async (req,res) => {
-  const{
-    id,
-    label
-  }=req.body;
-  // console.log(id);
-  // console.log(label);
   try {
-    const cap = new Caption(
-      id,
-      label,
+    for (let i = 1; i <= 9; i++){
+    if (req.body[`label${i}`]!== ''){ 
+    let cap = new Caption(
+      i,
+      req.body[`label${i}`],
+    
     );
-    const data = await cap.save();
+    let data = await cap.save();  
+    }
+    }
+    
   } catch (error) {
     console.log(error);
     res.status(500).render('404');

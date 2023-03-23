@@ -1,0 +1,101 @@
+body{
+  background-color: rgb(241, 226, 201);
+}
+h1{
+  text-align: center;
+}
+h1::after {
+  display: block;
+  text-align: center;
+  font-size: 1em;
+  color: rgb(71, 230, 56);
+  content: "—";
+}
+h2{
+  text-align: center;
+  margin: 50px;
+}
+h2::after {
+  display: block;
+  text-align: center;
+  font-size: 1em;
+  color: rgb(71, 230, 56);
+  content: "—";
+}
+.enquiry{
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.video-upload-form{
+  max-width: 600px;
+  margin: 0 auto;
+
+}
+.image-upload-form {
+  max-width: 600px;
+  margin: 0 auto;
+  border: rgb(219, 60, 60);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+input[type="file"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: block;
+  margin-bottom: 10px;
+}
+
+button[type="submit"], 
+button[type="button"]{
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  input[type="text"],
+  textarea {
+    font-size: 16px;
+  }
+}
+
+a{
+  color: #5100ff;
+  text-decoration: none;
+  font-weight:bold;
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  font-size: 16px;
+}
+a:hover {
+  color: #f00;
+  text-decoration: underline;
+}

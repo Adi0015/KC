@@ -14,26 +14,14 @@ uploadBtn.addEventListener("click", () => {
     }
   }
   
+  for (let i = 1; i <= 9; i++) {
+    var element = document.getElementById(`imc${i}`);
+    var value = element.value;
+    console.log(value);
+    formData.append(`label${i}`, value);
     
-  formData.append('label',document.getElementById(`imc1`).value)
-  formData.append('id',document.getElementById(`imc1`).name)
-  formData.append('label',document.getElementById(`imc2`).value)
-  formData.append('id',document.getElementById(`imc2`).name)
-  formData.append('label',document.getElementById(`imc3`).value)
-  formData.append('id',document.getElementById(`imc3`).name)
-  formData.append('label',document.getElementById(`imc4`).value)
-  formData.append('id',document.getElementById(`imc4`).name)
-  formData.append('label',document.getElementById(`imc5`).value)
-  formData.append('id',document.getElementById(`imc5`).name)
-  formData.append('label',document.getElementById(`imc6`).value)
-  formData.append('id',document.getElementById(`imc6`).name)
-  formData.append('label',document.getElementById(`imc7`).value)
-  formData.append('id',document.getElementById(`imc7`).name)
-  formData.append('label',document.getElementById(`imc8`).value)
-  formData.append('id',document.getElementById(`imc8`).name)
-  formData.append('label',document.getElementById(`imc9`).value)
-  formData.append('id',document.getElementById(`imc9`).name)
-    
+  }
+  
   
     
   // Submit the form data to the server using fetch
