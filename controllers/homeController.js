@@ -1,6 +1,7 @@
 const Enquiry = require('../models/enquiry')
 const Admission = require('../models/admission')
-const Caption = require('../models/imageCaption')
+const imgCaption = require('../models/imageCaption')
+const vdCaption = require('../models/videoCaption')
 
 const db = require('../lib/db')
 const excel = require('exceljs')
@@ -13,12 +14,23 @@ exports.getHome = async (req, res) => {
     res.status(404).render("404", { content: "default" });
   }
 }
+
 exports.getAdmission = async (req, res) => {
   res.status(200).render("admission", { page: "admission" });
 };
+
 exports.getVideos = async (req, res) => {
-  res.status(200).render("video", { page: "video" });
+  try {
+    let sql = `SELECT * FROM video;`;
+    const [rows] = await db.execute(sql);
+    
+    res.render('video', { labels: rows });
+  } catch (error) {
+    console.log(error);
+    res.render('404');
+  }
 };
+
 exports.getGallery = async (req, res) => {
   
     try {
@@ -33,9 +45,11 @@ exports.getGallery = async (req, res) => {
   
   // res.status(200).render("gallery", { page: "gallery" });
 };
+
 exports.getContact = async (req, res) => {
   res.status(200).render("contact", { page: "contact" });
 };
+
 exports.createContact = async (req, res) => {
   let {
     parent_name,
@@ -60,12 +74,12 @@ exports.newImgCaptions =async (req,res) => {
   try {
     for (let i = 1; i <= 9; i++){
     if (req.body[`label${i}`]!== ''){ 
-    let cap = new Caption(
+    let imcap = new imgCaption(
       i,
       req.body[`label${i}`],
     
     );
-    let data = await cap.save();  
+    let data = await imcap.save();  
     }
     }
     
@@ -74,6 +88,26 @@ exports.newImgCaptions =async (req,res) => {
     res.status(500).render('404');
   }
 };
+
+exports.newVideoCaption =async (req,res) => {
+  try {
+    for (let i = 1; i <= 9; i++){
+    if (req.body[`label${i}`]!== ''){ 
+    let vdcap = new vdCaption(
+      i,
+      req.body[`label${i}`],
+    
+    );
+    let data = await vdcap.save();  
+    }
+    }
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).render('404');
+  }
+};
+
 exports.createAdmisson = async (req, res) => {
   const {
     name,
@@ -124,14 +158,7 @@ exports.createAdmisson = async (req, res) => {
   }
 };
 
-// exports.getActivity = async (req, res) => {
-//   res.status(200).render("activity", { page: "activity" });
-// };
-// exports.getRegistration = async (req, res) => {
-//   res.status(200).render("registration", { page: "registration" });
-// };
-
-exports.getEnquiries = async (req, res) => {
+exports.getadmin = async (req, res) => {
   try {
     const { startDate, endDate } = req.query
     let sql = `SELECT * FROM enquiry`
@@ -139,14 +166,14 @@ exports.getEnquiries = async (req, res) => {
       sql += ` WHERE date BETWEEN '${startDate}' AND '${endDate}'`
     }
     const [rows] = await db.execute(sql)
-    res.render('enquiries', { enquiries: rows, startDate, endDate })
+    res.render('admin', { admin: rows, startDate, endDate })
   } catch (error) {
     console.log(error)
     res.render('404')
   }
-}
+};
 
-exports.downloadEnquiries = async (req, res) => {
+exports.downloadadmin = async (req, res) => {
   try {
     const { startDate, endDate } = req.query
     let sql = `SELECT * FROM enquiry`
@@ -157,7 +184,7 @@ exports.downloadEnquiries = async (req, res) => {
     
     // Create a new Excel workbook
     const workbook = new excel.Workbook()
-    const sheet = workbook.addWorksheet('Enquiries')
+    const sheet = workbook.addWorksheet('admin')
 
     // Define the table header
     sheet.columns = [
@@ -181,7 +208,7 @@ exports.downloadEnquiries = async (req, res) => {
 
     // Set the response headers to force download the file
     res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-    res.setHeader('Content-Disposition', 'attachment; filename=enquiries.xlsx')
+    res.setHeader('Content-Disposition', 'attachment; filename=admin.xlsx')
 
     // Write the workbook to the response
     await workbook.xlsx.write(res)
@@ -191,5 +218,5 @@ exports.downloadEnquiries = async (req, res) => {
     console.log(error)
     res.render('404')
   }
-}
+};
 

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/enquiry.css" />
+  </head>
+  <body>
+    <% let loggedin=true %> 
+    <% if(!loggedin){%> 
+     
+      <%-include('login.ejs') %> 
+    <%}else{%>
+    <section class="enquiry">
+      <h1>Enquiry List</h1>
+      <form method="GET" action="/admin/download">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" />
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" />
+
+        <button type="submit">Download</button>
+      </form>
+
+      
+      <br />
+      
+    </section>
+
+    <section>
+      <form
+        method="POST"
+        enctype="multipart/form-data"
+        action="/admin"
+        class="image-upload-form"
+      >
+        <h2>Image Upload</h2>
+
+        <div class="form-group">
+          <label for="image">Image 1:</label>
+          <input
+            type="file"
+            name="image1"
+            id="image1"
+            accept="image/jpeg, image/png"
+          />
+          <input type="text" name="1" id="imc1" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="image">Image 2:</label>
+          <input
+            type="file"
+            name="image2"
+            id="image2"
+            accept="image/jpeg, image/png"
+          />
+          <input type="text" name="2" id="imc2" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="image">Image 3:</label>
+          <input
+            type="file"
+            name="image3"
+            id="image3"
+            accept="image/jpeg, image/png"
+          />
+          <input type="text" name="3" id="imc3" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="image">Image 4:</label>
+          <input
+            type="file"
+            name="image4"
+            id="image4"
+            accept="image/jpeg, image/png"
+          />
+          <input type="text" name="4" id="imc4" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="image">Image 5:</label>
+          <input
+            type="file"
+            name="image5"
+            id="image5"
+            accept="image/jpeg, image/png"
+          />
+          <input type="text" name="5" id="imc5" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="image">Image 6:</label>
+          <input
+            type="file"
+            name="image6"
+            id="image6"
+            accept="image/jpeg, image/png"
+          />
+          <input type="text" name="6" id="imc6" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="image">Image 7:</label>
+          <input
+            type="file"
+            name="image7"
+            id="image7"
+            accept="image/jpeg, image/png"
+          />
+          <input type="text" name="7" id="imc7" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="image">Image 8:</label>
+          <input
+            type="file"
+            name="image8"
+            id="image8"
+            accept="image/jpeg, image/png"
+          />
+          <input type="text" name="8" id="imc8" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="image">Image 9:</label>
+          <input
+            type="file"
+            name="image9"
+            id="image9"
+            accept="image/jpeg, image/png"
+          />
+          <input type="text" name="9" id="imc9" placeholder="Caption" />>
+        </div>
+        <button type="button" id="upload_btn">Submit</button>
+      </form>
+      <script src="/script/sycnImages.js"></script>
+    </section>
+
+    <section>
+      <form
+        method="POST"
+        enctype="multipart/form-data"
+        action="/admin"
+        class="video-upload-form"
+      >
+        <h2>Video Upload</h2>
+        <div class="form-group">
+          <label for="Video">Video 1:</label>
+          <input
+            type="file"
+            placeholder="Add video"
+            id="video1"
+            name="video1"
+            accept="video/mp4"
+          />
+          <input type="text" name="1" id="vdc1" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="Video">Video 2:</label>
+          <input
+            type="file"
+            placeholder="Add video"
+            id="video2"
+            name="video2"
+            accept="video/mp4"
+          />
+          <input type="text" name="2" id="vdc2" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="Video">Video 3:</label>
+          <input
+            type="file"
+            placeholder="Add video"
+            id="video3"
+            name="video3"
+            accept="video/mp4"
+          />
+          <input type="text" name="3" id="vdc3" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="Video">Video 4:</label>
+          <input
+            type="file"
+            placeholder="Add video"
+            id="video4"
+            name="video4"
+            accept="video/mp4"
+          />
+          <input type="text" name="4" id="vdc4" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="Video">Video 5:</label>
+          <input
+            type="file"
+            placeholder="Add video"
+            id="video5"
+            name="video5"
+            accept="video/mp4"
+          />
+          <input type="text" name="5" id="vdc5" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="Video">Video 6:</label>
+          <input
+            type="file"
+            placeholder="Add video"
+            id="video6"
+            name="video6"
+            accept="video/mp4"
+          />
+          <input type="text" name="6" id="vdc6" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="Video">Video 7:</label>
+          <input
+            type="file"
+            placeholder="Add video"
+            id="video7"
+            name="video7"
+            accept="video/mp4"
+          />
+          <input type="text" name="7" id="vdc7" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="Video">Video 8:</label>
+          <input
+            type="file"
+            placeholder="Add video"
+            id="video8"
+            name="video8"
+            accept="video/mp4"
+          />
+          <input type="text" name="8" id="vdc8" placeholder="Caption" />
+        </div>
+        <div class="form-group">
+          <label for="Video">Video 9:</label>
+          <input
+            type="file"
+            placeholder="Add video"
+            id="video9"
+            name="video9"
+            accept="video/mp4"
+          />
+          <input type="text" name="9" id="vdc9" placeholder="Caption" />
+        </div>
+
+        <button type="button" id="upload_video_btn">Submit</button>
+      </form>
+      <script src="/script/sycnVideos.js"></script>
+    </section>
+
+    <%}%>
+  </body>
+</html>
