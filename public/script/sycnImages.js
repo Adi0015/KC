@@ -6,7 +6,7 @@ uploadBtn.addEventListener("click", () => {
   // Loop through each file input element
   for (let i = 1; i <= 9; i++) {
     let input = document.getElementById(`image${i}`);
-
+    console.log(document.getElementById(`image${i}`));
     // If a file has been selected, add it to the form data
     if (input.files.length > 0) {
       let filename = `image${i}.jpg`; // Replace with existing filename
@@ -25,7 +25,7 @@ uploadBtn.addEventListener("click", () => {
   
     
   // Submit the form data to the server using fetch
-  fetch("/enquiries", {
+  fetch("/admin", {
     method: "POST",
     body: formData,
   })
