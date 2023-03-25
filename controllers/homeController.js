@@ -173,6 +173,29 @@ exports.getadmin = async (req, res) => {
   }
 };
 
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body
+    // console.log(req.body);
+    const data = {
+      'admin1':'password1',
+      'admin2':'password2',
+      'admin3':'password3',
+      'admin4':'password4',
+    }
+    if(data[email] && data[email]==password){
+      res.status(202).json({login:true})
+    }
+    else{
+      res.status(401).json({login:false})
+    }
+  } catch (error) {
+    console.log(error)
+    res.render('404')
+  }
+};
+
+
 exports.downloadadmin = async (req, res) => {
   try {
     const { startDate, endDate } = req.query

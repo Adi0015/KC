@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="css/enquiry.css" />
   </head>
   <body>
-    <% let loggedin=true %> 
-    <% if(!loggedin){%> 
-     
+    
       <%-include('login.ejs') %> 
-    <%}else{%>
-    <section class="enquiry">
+      <div id="adminDiv" style="display:none">
+        <a href="/">Home</a>
+      <section class="enquiry">
       <h1>Enquiry List</h1>
       <form method="GET" action="/admin/download">
         <label for="startDate">Start Date:</label>
@@ -247,6 +246,6 @@
       <script src="/script/sycnVideos.js"></script>
     </section>
 
-    <%}%>
+  </div>
   </body>
 </html>
