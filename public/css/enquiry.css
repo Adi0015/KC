@@ -1,5 +1,8 @@
 body{
-  background-color: rgb(241, 226, 201);
+  background-color: #d9c5fd;
+}
+section .fp{
+  background-color: #caaefd;
 }
 h1{
   text-align: center;
@@ -49,6 +52,7 @@ label {
 }
 
 input[type="text"],
+input[type="password"],
 textarea {
   width: 100%;
   padding: 10px;
@@ -84,6 +88,7 @@ button[type="button"]{
     font-size: 16px;
   }
 }
+
 
 a{
   color: #5100ff;
