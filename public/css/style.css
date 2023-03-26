@@ -226,9 +226,9 @@ h6,
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FFFFFF;
+    color: #0e0e0e;
     background: transparent;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #0e0e0e;
     border-radius: 45px;
     font-size: 22px;
     transition: .5s;
