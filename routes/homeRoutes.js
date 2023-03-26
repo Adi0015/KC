@@ -115,7 +115,9 @@ router
   ]),
   homeController.newVideoCaption);
 
-  
+router
+  .route('/admin/login')
+  .post(homeController.login)
   
 router
   .route('/admin/download')
