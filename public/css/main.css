@@ -32,19 +32,21 @@
 	margin: 0px; 
 	padding: 0px; 
 	box-sizing: border-box;
+
 }
 
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
+  background-color: #9094fb;
 }
 
 /*---------------------------------------------*/
 a {
 	font-family: Poppins-Regular;
-	font-size: 14px;
+	font-size: 20px;
 	line-height: 1.7;
-	color: #666666;
+	color: #090909;
 	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
@@ -58,7 +60,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #57b846;
+  color: #fafafa;
 }
 
 /*---------------------------------------------*/
@@ -168,7 +170,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #5360c7;
+  /* background: #9094fb; */
   /* background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
   background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
   background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
