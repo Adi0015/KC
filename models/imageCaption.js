@@ -1,6 +1,6 @@
 const db = require('../lib/db')
 
-class imgCaption {
+class Caption {
     constructor(id,label) {
         this.id = id
         this.label = label
@@ -13,4 +13,4 @@ class imgCaption {
     }
 }
 
-module.exports = imgCaption
+module.exports = Caption

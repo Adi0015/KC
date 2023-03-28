@@ -1,16 +1,16 @@
 const db = require('../lib/db')
 
-class vdCaption {
-    constructor(id,label) {
+class Caption {
+    constructor(id,vdlabel) {
         this.id = id
-        this.label = label
+        this.vdlabel = vdlabel
     }
 
     async save() {
        
-        const sql = `UPDATE video SET label = '${this.label}' WHERE id = '${this.id}'`;
+        const sql = `UPDATE video SET label = '${this.vdlabel}' WHERE id = '${this.id}'`;
         return await db.execute(sql)
     }
 }
 
-module.exports = vdCaption
+module.exports = Caption

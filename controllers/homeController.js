@@ -70,19 +70,20 @@ exports.createContact = async (req, res) => {
     res.status(500).render('404')
   }
 };
+
 exports.newImgCaptions =async (req,res) => {
   try {
     for (let i = 1; i <= 9; i++){
     if (req.body[`label${i}`]!== ''){ 
-    let imcap = new imgCaption(
+    let cap = new imgCaption(
       i,
       req.body[`label${i}`],
-    
+
     );
-    let data = await imcap.save();  
+    let data = await cap.save();  
     }
     }
-    
+
   } catch (error) {
     console.log(error);
     res.status(500).render('404');
@@ -92,10 +93,10 @@ exports.newImgCaptions =async (req,res) => {
 exports.newVideoCaption =async (req,res) => {
   try {
     for (let i = 1; i <= 9; i++){
-    if (req.body[`label${i}`]!== ''){ 
+    if (req.body[`vdlabel${i}`]!== ''){ 
     let vdcap = new vdCaption(
       i,
-      req.body[`label${i}`],
+      req.body[`vdlabel${i}`],
     
     );
     let data = await vdcap.save();  

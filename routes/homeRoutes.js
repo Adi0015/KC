@@ -83,19 +83,7 @@ router
     { name: 'image7', maxCount: 1 },
     { name: 'image8', maxCount: 1 },
     { name: 'image9', maxCount: 1 },
-  ]),
-  // videoUpload.fields([
-  //   { name: 'video1', maxCount: 1 },
-  //   { name: 'video2', maxCount: 1 },
-  //   { name: 'video3', maxCount: 1 },
-  //   { name: 'video4', maxCount: 1 },
-  //   { name: 'video5', maxCount: 1 },
-  //   { name: 'video6', maxCount: 1 },
-  //   { name: 'video7', maxCount: 1 },
-  //   { name: 'video8', maxCount: 1 },
-  //   { name: 'video9', maxCount: 1 },
-  // ])
-  homeController.newImgCaptions);
+  ]),homeController.newImgCaptions);
   
 router
   .route('/admin/videos')
@@ -112,8 +100,7 @@ router
     { name: 'video7', maxCount: 1 },
     { name: 'video8', maxCount: 1 },
     { name: 'video9', maxCount: 1 },
-  ]),
-  homeController.newVideoCaption);
+  ]),homeController.newVideoCaption);
 
 router
   .route('/admin/login')

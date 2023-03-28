@@ -15,13 +15,13 @@ uploadVidBtn.addEventListener("click", () => {
     }
   }
   
-  // for (let i = 1; i <= 9; i++) {
-  //   var element = document.getElementById(`vdc${i}`);
-  //   var value = element.value;
-  //   console.log(value);
-  //   formData.append(`vdlabel${i}`, value);
+  for (let i = 1; i <= 9; i++) {
+    var element = document.getElementById(`vdc${i}`);
+    var value = element.value;
+    console.log(value);
+    formData.append(`vdlabel${i}`, value);
     
-  // }
+  }
   
   
     
