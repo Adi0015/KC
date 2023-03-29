@@ -30,12 +30,9 @@ uploadVidBtn.addEventListener("click", () => {
     method: "POST",
     body: formData,
   })
-    .then((res) => {
-      // Handle the server response here
-      console.log(res);
-    })
-    .catch((err) => {
-      // Handle any errors here
-      console.log(err);
-    });
+  alert ("VIDEOS UPDATED");
+  for (let i = 1; i <= 9; i++) {
+  document.getElementById(`vdc${i}`).value = null;
+  document.getElementById(`video${i}`).value =null;
+  }
 });

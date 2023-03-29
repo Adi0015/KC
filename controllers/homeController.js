@@ -103,7 +103,9 @@ exports.newVideoCaption =async (req,res) => {
     }
     }
     
-  } catch (error) {
+  } 
+ 
+  catch (error) {
     console.log(error);
     res.status(500).render('404');
   }
