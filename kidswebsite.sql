@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 6.0.0-dev+20230323.7514e75794
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 24, 2023 at 09:01 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.4
+-- Host: localhost
+-- Generation Time: Apr 08, 2023 at 09:11 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,7 +45,7 @@ CREATE TABLE `admisson` (
   `parentPicture` varchar(255) NOT NULL,
   `birthCertificate` varchar(255) NOT NULL,
   `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admisson`
@@ -69,7 +69,7 @@ CREATE TABLE `enquiry` (
   `phone` varchar(255) DEFAULT NULL,
   `message` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `enquiry`
@@ -88,22 +88,22 @@ INSERT INTO `enquiry` (`id`, `parent_name`, `email`, `phone`, `message`, `date`)
 CREATE TABLE `gallery` (
   `id` int(11) NOT NULL,
   `label` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `gallery`
 --
 
 INSERT INTO `gallery` (`id`, `label`) VALUES
-(1, 'pavan'),
-(2, 'undefined'),
-(3, 'undefined'),
-(4, 'undefined'),
-(5, 'undefined'),
-(6, 'undefined'),
-(7, 'undefined'),
-(8, 'undefined'),
-(9, 'undefined');
+(1, 'Red day'),
+(2, 'Fruit Day'),
+(3, 'Republic Day'),
+(4, 'Makar Sankranti'),
+(5, 'Traditional Day'),
+(6, 'Christmas'),
+(7, 'Sport Day'),
+(8, 'Pediatrician Day'),
+(9, 'Blue Day');
 
 -- --------------------------------------------------------
 
@@ -114,14 +114,22 @@ INSERT INTO `gallery` (`id`, `label`) VALUES
 CREATE TABLE `video` (
   `id` int(11) NOT NULL,
   `label` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `video`
 --
 
 INSERT INTO `video` (`id`, `label`) VALUES
-(1, 'undefined');
+(1, 'Navratri'),
+(2, 'Republic Day'),
+(3, 'Chritmas'),
+(4, 'remove'),
+(5, 'remove'),
+(6, 'remove'),
+(7, 'undefined'),
+(8, 'undefined'),
+(9, 'undefined');
 
 --
 -- Indexes for dumped tables
