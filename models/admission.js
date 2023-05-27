@@ -29,4 +29,5 @@ class Admission{
     
 }
 
+
 module.exports = Admission 

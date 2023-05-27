@@ -105,10 +105,20 @@ router
 router
   .route('/admin/login')
   .post(homeController.login)
-  
+
 router
-  .route('/admin/download')
-  .get(homeController.downloadadmin)
+  .route('/admin/insights')
+  .get(homeController.insights)
+
+
+router.post('/admin/updateData', homeController.updateData);
+
+  
+  module.exports = router;
+  // router
+//   .route('/admin/download')
+//   .get(homeController.downloadadmin)
+
 
 
 router.use(express.static(path.join(__dirname, 'public')))

@@ -6,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin</title>
     <link rel="stylesheet" href="css/enquiry.css" />
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+      .edit-cell {
+        background-color: lightyellow;
+      }
+    </style>
   </head>
   <body>
     
       <%-include('login.ejs') %> 
       <div id="adminDiv" style="display:none">
         <a href="/">Home</a>
+        <a href="/admin/insights">Insights</a>
       <section class="enquiry">
       <h1>Enquiry List</h1>
       <form method="GET" action="/admin/download">
@@ -245,7 +259,7 @@
       </form>
       <script src="/script/sycnVideos.js"></script>
     </section>
-
+    
   </div>
   </body>
 </html>

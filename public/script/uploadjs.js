@@ -5,8 +5,23 @@ uploadBtn.addEventListener("click", () => {
   let childpic = document.getElementById("childPicture");
   let birthcer =document.getElementById("birthCertificate")
   
-  if (parpic.value.length === 0 && childpic.value.length === 0 && birthcer.value.length === 0 ) {
-    alert("Please Upload a file");
+  if (parpic.value.length === 0 ||
+    childpic.value.length === 0 ||
+    birthcer.value.length === 0 ||
+    document.getElementById("name").value.length === 0 ||
+    document.getElementById("email").value.length === 0 ||
+    document.getElementById("childAge").value.length === 0 ||
+    document.getElementById("birthdate").value.length === 0 ||
+    document.getElementById("branch").value.length === 0 ||
+    document.getElementById("standard").value.length === 0 ||
+    document.getElementById("fatherName").value.length === 0 ||
+    document.getElementById("fatheroccupation").value.length === 0 ||
+    document.getElementById("fatherMobileNumber").value.length === 0 ||
+    document.getElementById("motherName").value.length === 0 ||
+    document.getElementById("motheroccupation").value.length === 0 ||
+    document.getElementById("motherMobileNumber").value.length === 0
+    ) {
+    alert("Please fill in all fields");
   } else {
     let t = Date.now()
     let imgNameChild = t + "-child.jpg" 

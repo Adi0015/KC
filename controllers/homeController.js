@@ -133,7 +133,7 @@ exports.createAdmisson = async (req, res) => {
   // console.log(childPicture);
   
   try {
-    // Save admission to database
+   
     const admit = new Admission(
       name,
       childAge,
@@ -243,6 +243,41 @@ exports.downloadadmin = async (req, res) => {
   } catch (error) {
     console.log(error)
     res.render('404')
+  }
+};
+
+
+
+exports.insights = async (req, res) => {
+  try {
+    const sql = 'SELECT id, childname,branch,standard, email, totalFees, feespaid, remainingFees FROM admisson';
+    const [rows] = await db.execute(sql);
+    res.render('insights', { admissions: rows });
+  } catch (error) {
+    console.log(error);
+    res.render('404');
+  }
+};
+
+exports.updateData = async (req, res) => {
+  try {
+    const { id, newData } = req.body;
+    let updates = '';
+
+    for (const key in newData) {
+      if (newData.hasOwnProperty(key)) {
+        updates += `${key} = '${newData[key]}', `;
+      }
+    }
+    updates = updates.slice(0, -2); // Remove the trailing comma and space
+
+    const sql = `UPDATE admisson SET ${updates} WHERE id = '${id}'`;
+    await db.execute(sql);
+
+    res.sendStatus(200); // Send a success status code
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500); // Send an error status code
   }
 };
 
