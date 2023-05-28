@@ -115,9 +115,9 @@ router.post('/admin/updateData', homeController.updateData);
 
   
   module.exports = router;
-  // router
-//   .route('/admin/download')
-//   .get(homeController.downloadadmin)
+  router
+  .route('/admin/download')
+  .get(homeController.downloadadmin)
 
 
 
