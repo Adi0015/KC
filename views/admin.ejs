@@ -31,6 +31,9 @@
 
         var videoUploadDiv = document.getElementById("videoUploadDiv");
         videoUploadDiv.style.display = "none";
+
+        var insightDiv = document.getElementById("insightDiv");
+        insightDiv.style.display = "none";
       }
 
       function showImageUpload() {
@@ -42,6 +45,9 @@
 
         var videoUploadDiv = document.getElementById("videoUploadDiv");
         videoUploadDiv.style.display = "none";
+
+        var insightDiv = document.getElementById("insightDiv");
+        insightDiv.style.display = "none";
       }
 
       function showVideoUpload() {
@@ -53,24 +59,42 @@
 
         var videoUploadDiv = document.getElementById("videoUploadDiv");
         videoUploadDiv.style.display = "block";
+
+        var insightDiv = document.getElementById("insightDiv");
+        insightDiv.style.display = "none";
+      }
+      
+      function showInsight() {
+        var enquiryDiv = document.getElementById("enquiryDiv");
+        enquiryDiv.style.display = "none";
+
+        var imageUploadDiv = document.getElementById("imageUploadDiv");
+        imageUploadDiv.style.display = "none";
+
+        var videoUploadDiv = document.getElementById("videoUploadDiv");
+        videoUploadDiv.style.display = "none";
+      
+        var insightDiv = document.getElementById("insightDiv");
+        insightDiv.style.display = "block";
       }
     </script>
   </head>
   <body>
     <!-- include login.ejs -->
-
     <%- include('login.ejs') %>
-
+    
     <div id="adminDiv" style="display:none">
+      <div class="adminNav">
       <a href="/">Home</a>
-      <a href="/admin/insights">Insights</a>
       <br>
       <button onclick="showEnquiry()">Enquiry</button>
       <br>
       <button onclick="showImageUpload()">Image Upload</button>
       <br>
       <button onclick="showVideoUpload()">Video Upload</button>
-
+      <br>
+      <button onclick="showInsight()">Insights</button>
+      </div>
       <div id="enquiryDiv" style="display:none">
         <%- include('enquiry.ejs') %>
       </div>
@@ -81,6 +105,10 @@
 
       <div id="videoUploadDiv" style="display:none">
         <%- include('video-upload.ejs') %>
+      </div>
+
+      <div id="insightDiv" style="display:none">
+        <%- include('insights.ejs') %>
       </div>
     </div>
 

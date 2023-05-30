@@ -1,60 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin</title>
-    <link rel="stylesheet" href="css/enquiry.css" />
-    <style>
-      table {
-        border-collapse: collapse;
-      }
-      th,
-      td {
-        border: 1px solid black;
-        padding: 8px;
-      }
-      .edit-cell {
-        background-color: lightyellow;
-      }
-    </style>
-  </head>
-  <body>
-    <%- include('login.ejs') %>
-    <div id="adminDiv" style="display:none">
-      <h1>Insights</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Child Name</th>
-            <th>Branch</th>
-            <th>Standard</th>
-            <th>Email</th>
-            <th>Total Fees</th>
-            <th>Fees Paid</th>
-            <th>Remaining Fees</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% admissions.forEach(function(admission) { %>
-            <tr>
-              <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="childname"><%= admission.childname %></td>
-              <td><%= admission.branch %></td>
-              <td><%= admission.standard %></td>
-              <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="email"><%= admission.email %></td>
-              <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="totalFees"><%= admission.totalFees %></td>
-              <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="feespaid"><%= admission.feespaid %></td>
-              <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="remainingFees"><%= admission.totalFees - admission.feespaid %></td>
-              <td>
-                <button onclick="updateData('<%= admission.id %>')">Update</button>
-              </td>
-            </tr>
-          <% }); %>
-        </tbody>
-      </table>
-      <script src="/script/updateData.js"></script>
-    </div>
-  </body>
-</html>
+<!-- include login.ejs -->
+
+<h1>Insights</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Child Name</th>
+      <th>Branch</th>
+      <th>Standard</th>
+      <th>Email</th>
+      <th>Total Fees</th>
+      <th>Fees Paid</th>
+      <th>Remaining Fees</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% admissions.forEach(function(admission) { %>
+      <tr>
+        <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="childname">
+          <%= admission.childname %>
+        </td>
+        <td>
+          <%= admission.branch %>
+        </td>
+        <td>
+          <%= admission.standard %>
+        </td>
+        <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="email">
+          <%= admission.email %>
+        </td>
+        <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="totalFees">
+          <%= admission.totalFees %>
+        </td>
+        <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="feespaid">
+          <%= admission.feespaid %>
+        </td>
+        <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="remainingFees">
+          <%= admission.totalFees - admission.feespaid %>
+        </td>
+        <td>
+          <button onclick="updateData('<%= admission.id %>')">Update</button>
+        </td>
+      </tr>
+      <% }); %>
+  </tbody>
+</table>
+<script src="/script/updateData.js"></script>

@@ -42,26 +42,43 @@ body, html {
 }
 
 /*---------------------------------------------*/
-a {
+/* /Admin CSS/ */
+a ,
+.adminNav button {
 	font-family: Poppins-Regular;
 	font-size: 20px;
 	line-height: 1.7;
 	color: #090909;
 	margin: 0px;
-	transition: all 0.4s;
-	-webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
 }
 
 a:focus {
 	outline: none !important;
 }
 
-a:hover {
+a:hover ,
+.adminNav button:hover {
 	text-decoration: none;
-  color: #fafafa;
+  color: #eb0808;
 }
+
+.adminNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adminNav a,
+.adminNav button {
+  margin: 0 102px;
+}
+.adminNav{
+  background-color: rgb(255, 254, 253);
+  margin-bottom: 5rem;
+  padding: 1rem;
+}
+/* /Admin css end/ */
+
 
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {

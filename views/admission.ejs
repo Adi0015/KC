@@ -19,179 +19,189 @@
 
         <!-- Navbar Start -->
         <%- include('./common/nav.ejs', { activePage: 'admission' }) %>
-        <!-- Navbar End -->
+            <!-- Navbar End -->
 
-        <!-- Contact Start -->
-        <div class="container-l py-5 bg-secondary">
-            <div class="container">
-                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Admission</h1>
-                </div>
-                <div class="bg-danger rounded">
-                    <div class="row g-0 d-flex justify-content-around">
-                        <div class="col-lg-6 wow fadeIn " data-wow-delay="0.1s">
-                            <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <form enctype="multipart/form-data" action="/admission"  method="post">
-                                    <div class="row g-3">
-                                        <!-- child details -->
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="name" name="name"
-                                                    placeholder="Student Name" required>
-                                                <label for="studentName">Student Name</label>
+            <!-- Contact Start -->
+            <div class="container-l py-5 bg-secondary">
+                <div class="container">
+                    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                        <h1 class="mb-3">Admission</h1>
+                    </div>
+                    <div class="bg-danger rounded">
+                        <div class="row g-0 d-flex justify-content-around">
+                            <div class="col-lg-6 wow fadeIn " data-wow-delay="0.1s">
+                                <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                    <form enctype="multipart/form-data" action="/admission" method="post">
+                                        <div class="row g-3">
+                                            <!-- child details -->
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control border-0" id="name"
+                                                        name="name" placeholder="Student Name" required>
+                                                    <label for="studentName">Student Name</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input class="form-control  border-0" placeholder="Birthdate"
-                                                    type="date" id="birthdate" name="birthdate" onchange="calculateAge(this.value)" required>
-                                                <label for="birthdate">Choose Birthdate</label>
+                                            <div class="col-sm-6">
+                                                <div class="form-floating">
+                                                    <input class="form-control  border-0" placeholder="Birthdate"
+                                                        type="date" id="birthdate" name="birthdate"
+                                                        onchange="calculateAge(this.value)" required>
+                                                    <label for="birthdate">Choose Birthdate</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        
-                                        <script>
-                                            function calculateAge(birthdate) {
-                                                var today = new Date();
-                                                var birthdate = new Date(birthdate);
-                                                var age = today.getFullYear() - birthdate.getFullYear();
-                                                var m = today.getMonth() - birthdate.getMonth();
-                                                if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
-                                                    age--;
+
+                                            <script>
+                                                function calculateAge(birthdate) {
+                                                    var today = new Date();
+                                                    var birthdate = new Date(birthdate);
+                                                    var age = today.getFullYear() - birthdate.getFullYear();
+                                                    var m = today.getMonth() - birthdate.getMonth();
+                                                    if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+                                                        age--;
+                                                    }
+                                                    document.getElementById("childAge").value = age;
                                                 }
-                                                document.getElementById("childAge").value = age;
-                                            }
-                                        </script>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="childAge" name="childAge"
-                                                    placeholder="Student Name" required>
-                                                <label for="studentAge">Student Age</label>
+                                            </script>
+                                            <div class="col-sm-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control border-0" id="childAge"
+                                                        name="childAge" placeholder="Student Name" required>
+                                                    <label for="studentAge">Student Age</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <select class="form-control  border-0" placeholder="Branch" id="branch"
-                                                    name="branch" required>
-                                                    <option value="">Choose Branch</option>
-                                                    <option value="Charkop">Charkop</option>
-                                                    <option value="Andheri">Andheri</option>
-                                                    <option value="Borivali">Borivali</option>
-                                                    <option value="Kandivali">Kandivali</option>
-                                                </select>
-                                                <label for="branch">Choose Branch</label>
+                                            <div class="col-sm-6">
+                                                <div class="form-floating">
+                                                    <select class="form-control  border-0" placeholder="Branch"
+                                                        id="branch" name="branch" required>
+                                                        <option value="">Choose Branch</option>
+                                                        <option value="Charkop">Charkop</option>
+                                                        <option value="Andheri">Andheri</option>
+                                                        <option value="Borivali">Borivali</option>
+                                                        <option value="Kandivali">Kandivali</option>
+                                                    </select>
+                                                    <label for="branch">Choose Branch</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <select class="form-control  border-0" placeholder="Standard" 
-                                                    id="standard" name="standard" required>
-                                                    <option value="">Choose Class</option>
-                                                    <option value="Play Group">Play Group</option>
-                                                    <option value="Nursery">Nursery </option>
-                                                </select>
-                                                <label for="standard">Choose Class</label>
+                                            <div class="col-sm-6">
+                                                <div class="form-floating">
+                                                    <select class="form-control  border-0" placeholder="Standard"
+                                                        id="standard" name="standard" required>
+                                                        <option value="">Choose Class</option>
+                                                        <option value="Play Group">Play Group</option>
+                                                        <option value="Nursery">Nursery </option>
+                                                    </select>
+                                                    <label for="standard">Choose Class</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        
-                                        <!-- father details -->
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="fatherName"
-                                                    name="fatherName" placeholder="Father Name">
-                                                <label for="fathername">Father Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="fatheroccupation"
-                                                    name="fatheroccupation" placeholder="Father's Occupation">
-                                                <label for="fatheroccupation">Father's Occupation</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="motherName"
-                                                    name="motherName" placeholder="Mother Name">
-                                                <label for="mothername">Mother Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="motheroccupation"
-                                                    name="motheroccupation" placeholder="Mother's Occupation">
-                                                <label for="motheroccupation">Mother's Occupation</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="tel" class="form-control border-0" id="fatherMobileNumber"
-                                                    name="fatherMobileNumber" placeholder="Father's Contact No." required>
-                                                <label for="phone">Father's Contact No.</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="tel" class="form-control border-0" id="motherMobileNumber"
-                                                    name="motherMobileNumber" placeholder="Mother's Contact No.">
-                                                <label for="alternatephone">Mother's Contact No.</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <input type="email" class="form-control border-0" id="email"
-                                                    name="email" placeholder="Your Email">
-                                                <label for="email">Your Email</label>
-                                            </div>
-                                        </div>
-                                       
-                                        <b> <h6 class="text-danger font">NOTE : Upload files in jpg or png format less than 256kb </h6></b>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <input class="form-control border-0" placeholder="Student Photo"
-                                                    type="file" id="childPicture" name="childPicture"
-                                                    accept="image/jpeg, image/png" required>
 
-                                                <label for="childPicture">Student Photo</label>
+                                            <!-- father details -->
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control border-0" id="fatherName"
+                                                        name="fatherName" placeholder="Father Name">
+                                                    <label for="fathername">Father Name</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <input class="form-control border-0" placeholder="Student Photo"
-                                                    type="file" id="parentPicture" name="parentPicture"
-                                                    accept="image/jpeg, image/png" required>
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control border-0"
+                                                        id="fatheroccupation" name="fatheroccupation"
+                                                        placeholder="Father's Occupation">
+                                                    <label for="fatheroccupation">Father's Occupation</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control border-0" id="motherName"
+                                                        name="motherName" placeholder="Mother Name">
+                                                    <label for="mothername">Mother Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control border-0"
+                                                        id="motheroccupation" name="motheroccupation"
+                                                        placeholder="Mother's Occupation">
+                                                    <label for="motheroccupation">Mother's Occupation</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-floating">
+                                                    <input type="tel" class="form-control border-0"
+                                                        id="fatherMobileNumber" name="fatherMobileNumber"
+                                                        placeholder="Father's Contact No." required>
+                                                    <label for="phone">Father's Contact No.</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-floating">
+                                                    <input type="tel" class="form-control border-0"
+                                                        id="motherMobileNumber" name="motherMobileNumber"
+                                                        placeholder="Mother's Contact No.">
+                                                    <label for="alternatephone">Mother's Contact No.</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input type="email" class="form-control border-0" id="email"
+                                                        name="email" placeholder="Your Email">
+                                                    <label for="email">Your Email</label>
+                                                </div>
+                                            </div>
 
-                                                <label for="parentPicture">Parent Photo</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <input class="form-control border-0" placeholder="Birth Certificate"
-                                                    type="file" id="birthCertificate" name="birthCertificate"
-                                                    accept="image/jpeg, image/png" required>
+                                            <b>
+                                                <h6 class="text-danger font">NOTE : Upload files in jpg or png format
+                                                    less than 256kb </h6>
+                                            </b>
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input class="form-control border-0" placeholder="Student Photo"
+                                                        type="file" id="childPicture" name="childPicture"
+                                                        accept="image/jpeg, image/png" required>
 
-                                                <label for="parentPicture">Birth Certificate Photo</label>
+                                                    <label for="childPicture">Student Photo</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input class="form-control border-0" placeholder="Student Photo"
+                                                        type="file" id="parentPicture" name="parentPicture"
+                                                        accept="image/jpeg, image/png" required>
+
+                                                    <label for="parentPicture">Parent Photo</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input class="form-control border-0" placeholder="Birth Certificate"
+                                                        type="file" id="birthCertificate" name="birthCertificate"
+                                                        accept="image/jpeg, image/png" required>
+
+                                                    <label for="parentPicture">Birth Certificate Photo</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="btn btn-primary w-100 py-3" type="button"
+                                                    id="upload_btn">Submit</button>
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" type="button" id="upload_btn" >Submit</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
+                                <script src="/script/uploadjs.js"></script>
                             </div>
-                            <script src="/script/uploadjs.js"></script>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Contact End -->
+            <!-- Contact End -->
 
-        <!-- Footer Start -->
-        <%-include("./common/footer.ejs")%>
-        <!-- Footer End -->
+            <!-- Footer Start -->
+            <%-include(". /common/footer.ejs")%>
+                <!-- Footer End -->
 
-        <!-- Back to Top -->
-        <a href="/admission" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+                <!-- Back to Top -->
+                <a href="/admission" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+                        class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->

@@ -163,13 +163,16 @@ exports.createAdmisson = async (req, res) => {
 
 exports.getadmin = async (req, res) => {
   try {
+    const insightssql = 'SELECT id, childname,branch,standard, email, totalFees, feespaid, remainingFees FROM admisson';    
     const { startDate, endDate } = req.query
     let sql = `SELECT * FROM enquiry`
     if (startDate && endDate) {
       sql += ` WHERE date BETWEEN '${startDate}' AND '${endDate}'`
     }
+    const [insightsrows] = await db.execute(insightssql);
     const [rows] = await db.execute(sql)
-    res.render('admin', { admin: rows, startDate, endDate })
+    res.render('admin', { admin: rows, startDate, endDate ,admissions: insightsrows })
+    
   } catch (error) {
     console.log(error)
     res.render('404')
@@ -246,18 +249,6 @@ exports.downloadadmin = async (req, res) => {
   }
 };
 
-
-
-exports.insights = async (req, res) => {
-  try {
-    const sql = 'SELECT id, childname,branch,standard, email, totalFees, feespaid, remainingFees FROM admisson';
-    const [rows] = await db.execute(sql);
-    res.render('insights', { admissions: rows });
-  } catch (error) {
-    console.log(error);
-    res.render('404');
-  }
-};
 
 exports.updateData = async (req, res) => {
   try {

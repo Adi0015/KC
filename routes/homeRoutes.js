@@ -106,16 +106,14 @@ router
   .route('/admin/login')
   .post(homeController.login)
 
-router
-  .route('/admin/insights')
-  .get(homeController.insights)
+
 
 
 router.post('/admin/updateData', homeController.updateData);
 
   
-  module.exports = router;
-  router
+ 
+router
   .route('/admin/download')
   .get(homeController.downloadadmin)
 
