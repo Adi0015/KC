@@ -11,6 +11,7 @@ uploadBtn.addEventListener("click", () => {
     document.getElementById("name").value.length === 0 ||
     document.getElementById("email").value.length === 0 ||
     document.getElementById("childAge").value.length === 0 ||
+    document.getElementById("whatsapp").value.length === 0 ||
     document.getElementById("birthdate").value.length === 0 ||
     document.getElementById("branch").value.length === 0 ||
     document.getElementById("standard").value.length === 0 ||
@@ -43,6 +44,7 @@ uploadBtn.addEventListener("click", () => {
     formData.append("birthCertificate", newImageBirthCer);
     formData.append("name",document.getElementById("name").value)
     formData.append("email",document.getElementById("email").value)
+    formData.append("whatsapp",document.getElementById("whatsapp").value)
     formData.append("childAge",document.getElementById("childAge").value)
     formData.append("birthdate",document.getElementById("birthdate").value)
     formData.append("branch",document.getElementById("branch").value)

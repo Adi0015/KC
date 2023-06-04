@@ -43,43 +43,76 @@ body, html {
 
 /*---------------------------------------------*/
 /* /Admin CSS/ */
-a ,
-.adminNav button {
-	font-family: Poppins-Regular;
-	font-size: 20px;
-	line-height: 1.7;
-	color: #090909;
-	margin: 0px;
-}
-
-a:focus {
-	outline: none !important;
-}
-
-a:hover ,
-.adminNav button:hover {
-	text-decoration: none;
-  color: #eb0808;
+#adminDiv {
+  display: none;
 }
 
 .adminNav {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 5%;
+  padding: 0 5%;
+  flex-wrap: wrap;
+  background-color: white;
 }
 
-.adminNav a,
-.adminNav button {
-  margin: 0 102px;
+.adminNav button,
+.adminNav a {
+  padding: 10px;
+  color: black;
 }
-.adminNav{
-  background-color: rgb(255, 254, 253);
-  margin-bottom: 5rem;
-  padding: 1rem;
+
+.adminNav button:hover,
+.adminNav a:hover{
+  color: rgb(253, 0, 0);
 }
 /* /Admin css end/ */
 
+/*image-upload css start*/
+.form-group .img-fluid {
+  height: 40%;
+  width: 40%;  
+}
+ .fp {
+    justify-content: center;
+  }
 
+  .form-group {
+    text-align: center;
+    margin: 10px;
+  }
+/*img-upload css end*/
+
+/*insights css start*/
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 5px;
+  }
+}
+
+/*insights css end*/
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;

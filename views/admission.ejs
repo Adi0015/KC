@@ -89,6 +89,8 @@
                                                         <option value="">Choose Class</option>
                                                         <option value="Play Group">Play Group</option>
                                                         <option value="Nursery">Nursery </option>
+                                                        <option value="Jr. KG">Jr. KG</option>
+                                                        <option value="Sr. KG">Sr. KG</option>
                                                     </select>
                                                     <label for="standard">Choose Class</label>
                                                 </div>
@@ -148,6 +150,13 @@
                                                     <label for="email">Your Email</label>
                                                 </div>
                                             </div>
+                                            <div class="col-12">
+                                                <div class="form-floating">
+                                                    <input type="tel" class="form-control border-0" id="whatsapp"
+                                                        name="whatsapp" placeholder="What's app No.(Any one)">
+                                                    <label for="whatsapp">What's app No.(Any one)</label>
+                                                </div>
+                                            </div>
 
                                             <b>
                                                 <h6 class="text-danger font">NOTE : Upload files in jpg or png format
@@ -196,7 +205,7 @@
             <!-- Contact End -->
 
             <!-- Footer Start -->
-            <%-include(". /common/footer.ejs")%>
+            <%- include("./common/footer.ejs") %>
                 <!-- Footer End -->
 
                 <!-- Back to Top -->

@@ -1,13 +1,38 @@
 <!-- include login.ejs -->
-
+<br>
+<br>
 <h1>Insights</h1>
-<table>
+<label for="branchFilter">Branch:</label>
+<select id="branchFilter" onchange="filterData()">
+  <option value="">All</option>
+  <option value="Andheri">Andheri</option>
+  <option value="Charkop">Charkop</option>
+  <option value="Borivali">Borivali</option>
+  <option value="Kandivali">Kandivali</option>
+  <!-- Add more options as needed -->
+</select>
+
+<label for="standardFilter">Standard:</label>
+<select id="standardFilter" onchange="filterData()">
+  <option value="">All</option>
+  <option value="Play Group">Play Group</option>
+  <option value="Nursery">Nursery</option>
+  <option value="Jr. KG">Jr. KG</option>
+  <option value="Sr. KG">Sr. KG</option>
+  <!-- Add more options as needed -->
+</select>
+
+<label for="childNameFilter">Child Name:</label>
+<input type="text" id="childNameFilter" oninput="filterData()">
+
+<table id="data-table">
   <thead>
     <tr>
       <th>Child Name</th>
       <th>Branch</th>
       <th>Standard</th>
       <th>Email</th>
+      <th>Whats App no.</th>
       <th>Total Fees</th>
       <th>Fees Paid</th>
       <th>Remaining Fees</th>
@@ -26,8 +51,11 @@
         <td>
           <%= admission.standard %>
         </td>
-        <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="email">
+        <td >
           <%= admission.email %>
+        </td>
+        <td>
+          <%= admission.whatsapp %>
         </td>
         <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="totalFees">
           <%= admission.totalFees %>
@@ -42,7 +70,57 @@
           <button onclick="updateData('<%= admission.id %>')">Update</button>
         </td>
       </tr>
-      <% }); %>
+    <% }); %>
   </tbody>
 </table>
+
+<button onclick="sumFees()">Calculate Revenue</button>
+<div id="fees-summary"></div>
+
 <script src="/script/updateData.js"></script>
+<script>
+  function filterData() {
+    var branchFilter = document.getElementById('branchFilter').value.trim().toLowerCase();
+    var standardFilter = document.getElementById('standardFilter').value.trim().toLowerCase();
+    var childNameFilter = document.getElementById('childNameFilter').value.trim().toLowerCase();
+    var rows = document.querySelectorAll('#data-table tbody tr');
+
+    for (var i = 0; i < rows.length; i++) {
+      var row = rows[i];
+      var childName = row.getElementsByTagName('td')[0].innerText.trim().toLowerCase();
+      var branch = row.getElementsByTagName('td')[1].innerText.trim().toLowerCase();
+      var standard = row.getElementsByTagName('td')[2].innerText.trim().toLowerCase();
+
+      if ((branchFilter && branch !== branchFilter) || (standardFilter && standard !== standardFilter) || (childNameFilter && childName.indexOf(childNameFilter) === -1)) {
+        row.style.display = 'none';
+      } else {
+        row.style.display = '';
+      }
+    }
+  }
+
+  function sumFees() {
+    var totalFeesSum = 0;
+    var feesPaidSum = 0;
+    var rows = document.querySelectorAll('#data-table tbody tr');
+
+    for (var i = 0; i < rows.length; i++) {
+      var row = rows[i];
+      var totalFeesCell = row.getElementsByTagName('td')[5];
+      var feesPaidCell = row.getElementsByTagName('td')[6];
+      var totalFees = parseInt(totalFeesCell.innerText);
+      var feesPaid = parseInt(feesPaidCell.innerText);
+
+      if (!isNaN(totalFees)) {
+        totalFeesSum += totalFees;
+      }
+
+      if (!isNaN(feesPaid)) {
+        feesPaidSum += feesPaid;
+      }
+    }
+
+    var summaryDiv = document.getElementById('fees-summary');
+    summaryDiv.innerText = "Total Fees: " + totalFeesSum + ", Fees Paid: " + feesPaidSum;
+  }
+</script>
