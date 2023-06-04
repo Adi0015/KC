@@ -125,6 +125,7 @@ exports.createAdmisson = async (req, res) => {
     motheroccupation,
     motherMobileNumber,
     email,
+    whatsapp,
   } = req.body;
   // console.log(req.files.childPicture);
   const childPicture = req.files.childPicture[0].originalname;
@@ -147,6 +148,7 @@ exports.createAdmisson = async (req, res) => {
       motheroccupation,
       motherMobileNumber,
       email,
+      whatsapp,
       childPicture,
       parentPicture,
       birthCertificate
@@ -163,7 +165,7 @@ exports.createAdmisson = async (req, res) => {
 
 exports.getadmin = async (req, res) => {
   try {
-    const insightssql = 'SELECT id, childname,branch,standard, email, totalFees, feespaid, remainingFees FROM admisson';    
+    const insightssql = 'SELECT id, childname,branch,standard, email, whatsapp, totalFees, feespaid, remainingFees FROM admisson';    
     const { startDate, endDate } = req.query
     let sql = `SELECT * FROM enquiry`
     if (startDate && endDate) {

@@ -1,4 +1,6 @@
 const db = require('../lib/db')
+const nodemailer = require('nodemailer');
+
 
 class Admission{
     constructor(name,childAge,birthdate,branch,standard,fatherName,fatheroccupation,fatherMobileNumber,motherName,motheroccupation,motherMobileNumber,email,whatsapp,childPicture,parentPicture,birthCertificate){
@@ -17,11 +19,37 @@ class Admission{
         this.whatsapp = whatsapp
         this.childPicture = childPicture
         this.parentPicture = parentPicture 
-        this.birthCertificate =birthCertificate
+        this.birthCertificate = birthCertificate
     
     }
     
     async save(){
+
+        // Send an email notification
+        const transporter = nodemailer.createTransport({
+            // Configure your email transport options here
+            // Example: SMTP settings for Gmail
+            service: 'gmail',
+            auth: {
+              user: 'swapnilsawant576@gmail.com',
+              pass: 'obodgsfotcgeexrf',
+                },
+            });
+      
+          const mailOptions = {
+            from: 'swapnilsawant576@gmail.com',
+            to: this.email,
+            subject: 'Admission Form Submitted',
+            text: 'Your admission form has been submitted successfully.',
+          };
+      
+          try {
+            await transporter.sendMail(mailOptions);
+            console.log('Email sent successfully!');
+          } catch (error) {
+            console.log('Failed to send email:', error);
+          }
+        
         const currentDate = new Date().toISOString().slice(0, 19).replace('T', ' ')
         const sql = `INSERT INTO admisson(childname, childage, birthdate, branch, standard, fathername, fatheroccupation, fathermobilenum, mothername, motheroccupation, mothermobilenum, email ,whatsapp,childPicture,parentPicture,birthCertificate,date) VALUES ('${this.name}','${this.childAge}','${this.birthdate}','${this.branch}','${this.standard}','${this.fatherName}','${this.fatheroccupation}','${this.fatherMobileNumber}','${this.motherName}','${this.motheroccupation}','${this.motherMobileNumber}','${this.email}','${this.whatsapp}','${this.childPicture}','${this.parentPicture}','${this.birthCertificate}','${currentDate}')`
         return await db.execute(sql)

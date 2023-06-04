@@ -37,6 +37,7 @@
       <th>Fees Paid</th>
       <th>Remaining Fees</th>
       <th>Action</th>
+      <th>Receipt</th>
     </tr>
   </thead>
   <tbody>
@@ -68,6 +69,9 @@
         </td>
         <td>
           <button onclick="updateData('<%= admission.id %>')">Update</button>
+        </td>
+        <td>
+          <button onclick="downloadReceipt('<%= admission.id %>')">Download Receipt</button>
         </td>
       </tr>
     <% }); %>
@@ -122,5 +126,29 @@
 
     var summaryDiv = document.getElementById('fees-summary');
     summaryDiv.innerText = "Total Fees: " + totalFeesSum + ", Fees Paid: " + feesPaidSum;
+  }
+
+  function downloadReceipt(admissionId) {
+    // Use the admissionId to identify the specific student and download the receipt
+    // Implement your download logic here, such as making an API call or generating a downloadable file
+    // You can use JavaScript's `fetch` or an AJAX library like jQuery to perform the download
+    // Example code (using fetch):
+
+    fetch(`/receipt/download/${admissionId}`)
+      .then(response => response.blob())
+      .then(blob => {
+        // Create a temporary download link and trigger the download
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'fee_receipt.pdf'; // Set the desired file name
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      })
+      .catch(error => {
+        console.error('Failed to download receipt:', error);
+      });
   }
 </script>
