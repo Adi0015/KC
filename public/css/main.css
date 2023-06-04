@@ -111,8 +111,47 @@ td {
     padding: 5px;
   }
 }
+childname {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: first baseline;
+}
+
+.childname label {
+  flex: 0 0 auto;
+  margin-right: 10px;
+}
+
+.childname input {
+  flex: 1 1 auto;
+  max-width: 20%;
+}
+
+@media (max-width: 600px) {
+  .childname label {
+    flex-basis: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+.revenue {
+  border: solid rgb(254, 253, 253);
+  padding: 0.9rem;
+  background-color: rgb(65,71,241);
+  color: #faf9f9;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.revenue:hover{
+  color:  rgb(101, 175, 239);
+}
+
 
 /*insights css end*/
+
+
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;

@@ -22,13 +22,17 @@
   <!-- Add more options as needed -->
 </select>
 
-<label for="childNameFilter">Child Name:</label>
-<input type="text" id="childNameFilter" oninput="filterData()">
+<div class="childname">
+  <label for="childNameFilter">Student Name:</label>
+  <input type="text" id="childNameFilter" placeholder="Enter student name" oninput="filterData()">
+</div>
+
+<br>
 
 <table id="data-table">
   <thead>
     <tr>
-      <th>Child Name</th>
+      <th>Student Name</th>
       <th>Branch</th>
       <th>Standard</th>
       <th>Email</th>
@@ -78,7 +82,9 @@
   </tbody>
 </table>
 
-<button onclick="sumFees()">Calculate Revenue</button>
+<br>
+
+<button class="revenue" onclick="sumFees()">Calculate Revenue</button>
 <div id="fees-summary"></div>
 
 <script src="/script/updateData.js"></script>
