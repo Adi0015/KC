@@ -43,28 +43,39 @@ body, html {
 
 /*---------------------------------------------*/
 /* /Admin CSS/ */
-#adminDiv {
-  display: none;
+a ,
+.adminNav button {
+	font-family: Poppins-Regular;
+	font-size: 20px;
+	line-height: 1.7;
+	color: #090909;
+	margin: 0px;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover ,
+.adminNav button:hover {
+	text-decoration: none;
+  color: #eb0808;
 }
 
 .adminNav {
   display: flex;
   justify-content: center;
-  gap: 5%;
-  padding: 0 5%;
-  flex-wrap: wrap;
-  background-color: white;
+  align-items: center;
 }
 
-.adminNav button,
-.adminNav a {
-  padding: 10px;
-  color: black;
+.adminNav a,
+.adminNav button {
+  margin: 0 102px;
 }
-
-.adminNav button:hover,
-.adminNav a:hover{
-  color: rgb(253, 0, 0);
+.adminNav{
+  background-color: rgb(255, 254, 253);
+  margin-bottom: 5rem;
+  padding: 1rem;
 }
 /* /Admin css end/ */
 

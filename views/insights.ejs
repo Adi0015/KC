@@ -56,7 +56,7 @@
         <td>
           <%= admission.standard %>
         </td>
-        <td >
+        <td>
           <%= admission.email %>
         </td>
         <td>
@@ -75,18 +75,17 @@
           <button onclick="updateData('<%= admission.id %>')">Update</button>
         </td>
         <td>
-          <button onclick="downloadReceipt('<%= admission.id %>')">Download Receipt</button>
+          <button onclick="downloadReceipt(this)">Receipt</button>
         </td>
       </tr>
     <% }); %>
   </tbody>
 </table>
-
-<br>
-
 <button class="revenue" onclick="sumFees()">Calculate Revenue</button>
 <div id="fees-summary"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
 <script src="/script/updateData.js"></script>
 <script>
   function filterData() {
@@ -134,27 +133,66 @@
     summaryDiv.innerText = "Total Fees: " + totalFeesSum + ", Fees Paid: " + feesPaidSum;
   }
 
-  function downloadReceipt(admissionId) {
-    // Use the admissionId to identify the specific student and download the receipt
-    // Implement your download logic here, such as making an API call or generating a downloadable file
-    // You can use JavaScript's `fetch` or an AJAX library like jQuery to perform the download
-    // Example code (using fetch):
+  function downloadReceipt(button) {
+    var row = button.parentNode.parentNode;
+    var childName = row.getElementsByTagName('td')[0].innerText.trim();
+    var branch = row.getElementsByTagName('td')[1].innerText.trim();
+    var standard = row.getElementsByTagName('td')[2].innerText.trim();
+    var email = row.getElementsByTagName('td')[3].innerText.trim();
+    var whatsapp = row.getElementsByTagName('td')[4].innerText.trim();
+    var totalFees = row.getElementsByTagName('td')[5].innerText.trim();
+    var feesPaid = row.getElementsByTagName('td')[6].innerText.trim();
+    var remainingFees = row.getElementsByTagName('td')[7].innerText.trim();
 
-    fetch(`/receipt/download/${admissionId}`)
-      .then(response => response.blob())
-      .then(blob => {
-        // Create a temporary download link and trigger the download
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'fee_receipt.pdf'; // Set the desired file name
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
-      })
-      .catch(error => {
-        console.error('Failed to download receipt:', error);
-      });
+    // Create the PDF content definition
+    var docDefinition = {
+      content: [
+        { text: 'KIDS CONCEPTS', style: 'header' },
+        { text: 'Receipt for Admission', style: 'subheader' },
+        '\n',
+        { text: 'Child Name:', style: 'label' },
+        { text: childName },
+        { text: 'Branch:', style: 'label' },
+        { text: branch },
+        { text: 'Standard:', style: 'label' },
+        { text: standard },
+        { text: 'Email:', style: 'label' },
+        { text: email },
+        { text: 'WhatsApp no.:', style: 'label' },
+        { text: whatsapp },
+        { text: 'Total Fees:', style: 'label' },
+        { text: totalFees },
+        { text: 'Fees Paid:', style: 'label' },
+        { text: feesPaid },
+        { text: 'Remaining Fees:', style: 'label' },
+        { text: remainingFees }
+      ],
+      styles: {
+        header: {
+          fontSize: 24,
+          bold: true,
+          alignment: 'center'
+        },
+        subheader: {
+          fontSize: 18,
+          bold: true,
+          alignment: 'center',
+          margin: [0, 20, 0, 20]
+        },
+        label: {
+          bold: true,
+          margin: [0, 5, 0, 2]
+        }
+      }
+    };
+
+    // Generate the PDF document
+    var pdfDoc = pdfMake.createPdf(docDefinition);
+
+    // Save the PDF document with child's name as the filename
+    pdfDoc.getBlob(function(blob) {
+      var filename = childName.replace(/[^a-z0-9]/gi, '_') + '.pdf';
+      saveAs(blob, filename);
+    });
   }
 </script>
