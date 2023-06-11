@@ -1,4 +1,82 @@
 <!-- include login.ejs -->
+<style>
+  #data-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#data-table th,
+#data-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Media query for responsive table */
+@media (max-width: 768px) {
+  /* Display table as flex container */
+  #data-table {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Display column names on small screens */
+  #data-table thead {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Hide table header on small screens */
+  #data-table thead tr {
+    display: none;
+  }
+
+  /* Display table rows as blocks */
+  #data-table tbody tr {
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+  }
+
+  /* Display table cells as blocks */
+  #data-table tbody td {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  /* Add padding and border to table cells */
+  #data-table tbody td {
+    padding: 6px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* Add table cell labels */
+  #data-table tbody td:before {
+    content: attr(data-label);
+    display: inline-block;
+    font-weight: normal;
+    margin-right: 5px;
+  }
+
+  /* Email column styles */
+  #data-table tbody td[data-label="Email"] {
+    width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Numerical columns styles */
+  #data-table tbody td[data-label="Total Fees"],
+  #data-table tbody td[data-label="Fees Paid"],
+  #data-table tbody td[data-label="Remaining Fees"] {
+    width: 20%;
+    text-align: right;
+  }
+}
+</style>
 <br>
 <br>
 <h1>Insights</h1>
@@ -72,17 +150,19 @@
           <%= admission.totalFees - admission.feespaid %>
         </td>
         <td>
-          <button onclick="updateData('<%= admission.id %>')">Update</button>
+          <button class="update" onclick="updateData('<%= admission.id %>')">Update</button>
         </td>
         <td>
-          <button onclick="generateReceipt('<%= admission.childname %>', '<%= admission.branch %>', '<%= admission.standard %>', '<%= admission.email %>', '<%= admission.whatsapp %>', '<%= admission.totalFees %>','<%= admission.feespaid %>')">Generate Receipt</button>
+          <button  class="generate" onclick="generateReceipt('<%= admission.childname %>', '<%= admission.branch %>', '<%= admission.standard %>', '<%= admission.email %>', '<%= admission.whatsapp %>', '<%= admission.totalFees %>','<%= admission.feespaid %>')">Generate Receipt</button>
         </td>
       </tr>
     <% }); %>
   </tbody>
 </table>
+<br>
 <button class="revenue" onclick="sumFees()">Calculate Revenue</button>
 <div id="fees-summary"></div>
+<br>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>

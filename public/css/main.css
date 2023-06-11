@@ -95,37 +95,9 @@ a:hover ,
 /*img-upload css end*/
 
 /*insights css start*/
-.table-container {
+.childname {
   display: flex;
-  justify-content: center;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th,
-td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-@media screen and (max-width: 600px) {
-  table {
-    font-size: 12px;
-  }
-
-  th,
-  td {
-    padding: 5px;
-  }
-}
-childname {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: first baseline;
+  align-items: center;
 }
 
 .childname label {
@@ -134,15 +106,8 @@ childname {
 }
 
 .childname input {
-  flex: 1 1 auto;
-  max-width: 20%;
-}
-
-@media (max-width: 600px) {
-  .childname label {
-    flex-basis: 100%;
-    margin-bottom: 5px;
-  }
+  flex: 3;
+  max-width: 55%;
 }
 
 .revenue {
@@ -157,8 +122,31 @@ childname {
 
 .revenue:hover{
   color:  rgb(101, 175, 239);
+} 
+.generate:hover,
+.update:hover{
+  color: #eb0808;
+}
+.adminNav {
+  display: flex;
+  flex-direction: column;
 }
 
+.adminNav a,
+.adminNav button {
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  .adminNav {
+    flex-direction: row;
+  }
+
+  .adminNav a,
+  .adminNav button {
+    margin: 0 10px;
+  }
+}
 /*insights css end*/
 /*Statistics home page*/
 
