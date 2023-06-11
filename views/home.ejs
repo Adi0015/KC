@@ -147,17 +147,17 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                         <div class="statistics-container">
-                            <div class="statistic">
+                            <div class="statistic" id="total-students">
                               <span class="statistic-value">1000</span>
-                              <span class="statistic-label">Visitors</span>
+                              <span class="statistic-label">Students from past 12 years</span>
                             </div>
                             <div class="statistic">
-                              <span class="statistic-value">500</span>
-                              <span class="statistic-label">Subscribers</span>
+                              <span class="statistic-value">50+</span>
+                              <span class="statistic-label">Activities</span>
                             </div>
-                            <div class="statistic">
-                              <span class="statistic-value">5000</span>
-                              <span class="statistic-label">Page Views</span>
+                            <div class="statistic" id="established-years">
+                              <span class="statistic-value"></span>
+                              <span class="statistic-label">Years Established</span>
                             </div>
                           </div>
                           
@@ -199,6 +199,22 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+    <script>
+        // Get the current year
+        const currentYear = new Date().getFullYear();
+      
+        // Calculate the difference between the current year and 2011
+        const difference = currentYear - 2011;
+      
+        // Update the third tile with the calculated difference
+        const establishedYearsElement = document.getElementById("established-years");
+        const establishedYearsValueElement = establishedYearsElement.querySelector(".statistic-value");
+        establishedYearsValueElement.textContent = difference+'+';
+
+        const totalStudentsElement = document.getElementById("total-students");
+        const totalStudentsValueElement = totalStudentsElement.querySelector(".statistic-value");
+        totalStudentsElement.innerHTML = '2400+<br>Students from past ' + difference + ' + years';
+      </script>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

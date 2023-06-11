@@ -8,7 +8,9 @@ const excel = require('exceljs')
 
 exports.getHome = async (req, res) => {
   try {
-    res.status(200).render("home", { page: "Home", content: "default" });
+    const totalStudents = 'SELECT MAX(id) FROM admisson';    
+    const [totalStudent] = await db.execute(totalStudents)
+    res.status(200).render("home", { page: "Home", content: "default", students:totalStudent });
   } catch (error) {
     console.log(error);
     res.status(404).render("404", { content: "default" });
@@ -55,6 +57,7 @@ exports.createContact = async (req, res) => {
     parent_name,
     parent_email,
     parent_phone,
+    branch,
     message
   } = req.body
   console.log(parent_name);
@@ -62,6 +65,7 @@ exports.createContact = async (req, res) => {
     let enquiry = new Enquiry(parent_name,
       parent_email,
       parent_phone,
+      branch,
       message)
     let data = await enquiry.save()
     res.status(200).redirect('/')
@@ -223,6 +227,7 @@ exports.downloadadmin = async (req, res) => {
       { header: 'Parent Name', key: 'parent_name' },
       { header: 'Email', key: 'email' },
       { header: 'Phone', key: 'phone' },
+      { header: 'Branch', key: 'branch' },
       { header: 'Message', key: 'message' }
     ]
 
@@ -233,6 +238,7 @@ exports.downloadadmin = async (req, res) => {
         parent_name: enquiry.parent_name,
         email: enquiry.email,
         phone: enquiry.phone,
+        branch: enquiry.branch,
         message: enquiry.message
       })
     }
