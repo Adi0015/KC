@@ -5,6 +5,23 @@ uploadBtn.addEventListener("click", () => {
   let childpic = document.getElementById("childPicture");
   let birthcer =document.getElementById("birthCertificate")
   
+  const maxSizeInBytes = 256 * 1024; // 256 KB
+
+  const validateFileSize = (file) => {
+    if (file.size > maxSizeInBytes) {
+      throw new Error("File size should be less than 256 KB.");
+    }
+  };
+
+  try {
+    validateFileSize(parpic.files[0]);
+    validateFileSize(childpic.files[0]);
+    validateFileSize(birthcer.files[0]);
+  } catch (error) {
+    alert(error.message);
+    return;
+  }
+
   if (parpic.value.length === 0 ||
     childpic.value.length === 0 ||
     birthcer.value.length === 0 ||
