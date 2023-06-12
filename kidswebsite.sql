@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 08, 2023 at 09:11 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Jun 12, 2023 at 03:00 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admisson`
+-- Table structure for table `admission`
 --
 
-CREATE TABLE `admisson` (
+CREATE TABLE `admission` (
   `id` int(255) NOT NULL,
   `childname` varchar(255) NOT NULL,
   `childage` int(255) NOT NULL,
@@ -41,20 +41,24 @@ CREATE TABLE `admisson` (
   `motheroccupation` varchar(255) NOT NULL,
   `mothermobilenum` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `whatsapp` varchar(255) NOT NULL,
+  `totalFees` int(255) DEFAULT 0,
+  `feespaid` int(255) DEFAULT 0,
+  `remainingFees` int(255) DEFAULT 0,
   `childPicture` varchar(255) NOT NULL,
   `parentPicture` varchar(255) NOT NULL,
   `birthCertificate` varchar(255) NOT NULL,
-  `date` date NOT NULL
+  `date` date NOT NULL,
+  `uniqueId` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `admisson`
+-- Dumping data for table `admission`
 --
 
-INSERT INTO `admisson` (`id`, `childname`, `childage`, `birthdate`, `branch`, `standard`, `fathername`, `fatheroccupation`, `fathermobilenum`, `mothername`, `motheroccupation`, `mothermobilenum`, `email`, `childPicture`, `parentPicture`, `birthCertificate`, `date`) VALUES
-(1, 'ria', 5, '2021-04-03', 'Andheri', 'Jr. KG', 'asdfg', 'sad', '7894561230', 'asfddaf', 'afafsa', '7894561230', 'asd@gmail.com', '1678457554542-child', '1678457554542-parent', '', '2023-03-10'),
-(2, 'ria', 5, '2021-04-03', 'Andheri', 'Jr. KG', 'asdfg', 'sad', '7894561230', 'asfddaf', 'afafsa', '7894561230', 'asd@gmail.com', '1678457872747-child', '1678457872747-parent', '', '2023-03-10'),
-(4, 'Aditya Gohil', 5, '2017-05-12', 'Andheri', 'Jr.KG', 'qwer', 'qwer', '09137810547', 'qwer', 'asdf', '09137810547', 'aditya512gohil@gmail.com', '1679462147829-child.jpg', '1679462147829-parent.jpg', '1679462147829-birthCertificate.jpg', '2023-03-22');
+INSERT INTO `admission` (`id`, `childname`, `childage`, `birthdate`, `branch`, `standard`, `fathername`, `fatheroccupation`, `fathermobilenum`, `mothername`, `motheroccupation`, `mothermobilenum`, `email`, `whatsapp`, `totalFees`, `feespaid`, `remainingFees`, `childPicture`, `parentPicture`, `birthCertificate`, `date`, `uniqueId`, `password`) VALUES
+(2400, 'trail base', 8, '2015-03-12', 'Andheri', 'Play Group', 'trail', 'trail', '7894561230', 'trail', 'trail', '7894561230', 'lavite1679@vaband.com', '7894561230', 0, 0, 0, '1686573800094-child.jpg', '1686573800094-parent.jpg', '1686573800094-birthCertificate.jpg', '2023-06-12', 'AN-1', '20150312');
 
 -- --------------------------------------------------------
 
@@ -67,17 +71,10 @@ CREATE TABLE `enquiry` (
   `parent_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
+  `branch` varchar(255) NOT NULL,
   `message` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `enquiry`
---
-
-INSERT INTO `enquiry` (`id`, `parent_name`, `email`, `phone`, `message`, `date`) VALUES
-(3, 'ashdb', 'asfas@gmail.com', '9876543210', 'asdasd', '2023-03-10'),
-(4, 'qwert', 'qwert@gmail.com', '789561230', 'qwert', '2023-03-21');
 
 -- --------------------------------------------------------
 
@@ -87,7 +84,7 @@ INSERT INTO `enquiry` (`id`, `parent_name`, `email`, `phone`, `message`, `date`)
 
 CREATE TABLE `gallery` (
   `id` int(11) NOT NULL,
-  `label` text DEFAULT NULL
+  `label` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -95,13 +92,13 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`id`, `label`) VALUES
-(1, 'Red day'),
+(1, 'Red Day'),
 (2, 'Fruit Day'),
 (3, 'Republic Day'),
 (4, 'Makar Sankranti'),
 (5, 'Traditional Day'),
 (6, 'Christmas'),
-(7, 'Sport Day'),
+(7, 'Sports Day'),
 (8, 'Pediatrician Day'),
 (9, 'Blue Day');
 
@@ -113,7 +110,7 @@ INSERT INTO `gallery` (`id`, `label`) VALUES
 
 CREATE TABLE `video` (
   `id` int(11) NOT NULL,
-  `label` text DEFAULT NULL
+  `label` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -122,23 +119,23 @@ CREATE TABLE `video` (
 
 INSERT INTO `video` (`id`, `label`) VALUES
 (1, 'Navratri'),
-(2, 'Republic Day'),
-(3, 'Chritmas'),
+(2, 'Independence Day'),
+(3, 'Christmas'),
 (4, 'remove'),
 (5, 'remove'),
 (6, 'remove'),
-(7, 'undefined'),
-(8, 'undefined'),
-(9, 'undefined');
+(7, 'remove'),
+(8, 'remove'),
+(9, 'remove');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admisson`
+-- Indexes for table `admission`
 --
-ALTER TABLE `admisson`
+ALTER TABLE `admission`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -164,16 +161,28 @@ ALTER TABLE `video`
 --
 
 --
--- AUTO_INCREMENT for table `admisson`
+-- AUTO_INCREMENT for table `admission`
 --
-ALTER TABLE `admisson`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `admission`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2401;
 
 --
 -- AUTO_INCREMENT for table `enquiry`
 --
 ALTER TABLE `enquiry`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `gallery`
+--
+ALTER TABLE `gallery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `video`
+--
+ALTER TABLE `video`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -65,13 +65,13 @@ class Admission{
           console.log('Failed to send email:', error);
         }
         
-        const sql = `INSERT INTO admisson(childname, childage, birthdate, branch, standard, fathername, fatheroccupation, fathermobilenum, mothername, motheroccupation, mothermobilenum, email ,whatsapp,childPicture,parentPicture,birthCertificate,date,uniqueId,password) VALUES ('${this.name}','${this.childAge}','${this.birthdate}','${this.branch}','${this.standard}','${this.fatherName}','${this.fatheroccupation}','${this.fatherMobileNumber}','${this.motherName}','${this.motheroccupation}','${this.motherMobileNumber}','${this.email}','${this.whatsapp}','${this.childPicture}','${this.parentPicture}','${this.birthCertificate}','${currentDate}','${this.uniqueId}','${this.password}')`
+        const sql = `INSERT INTO admission(childname, childage, birthdate, branch, standard, fathername, fatheroccupation, fathermobilenum, mothername, motheroccupation, mothermobilenum, email ,whatsapp,childPicture,parentPicture,birthCertificate,date,uniqueId,password) VALUES ('${this.name}','${this.childAge}','${this.birthdate}','${this.branch}','${this.standard}','${this.fatherName}','${this.fatheroccupation}','${this.fatherMobileNumber}','${this.motherName}','${this.motheroccupation}','${this.motherMobileNumber}','${this.email}','${this.whatsapp}','${this.childPicture}','${this.parentPicture}','${this.birthCertificate}','${currentDate}','${this.uniqueId}','${this.password}')`
         return await db.execute(sql)
         
     }
 
     async getLastInsertedId() {
-      const sql = 'SELECT MAX(id) AS lastId FROM admisson';
+      const sql = 'SELECT MAX(id) AS lastId FROM admission';
       const [rows, fields] = await db.execute(sql);
       const lastId = rows[0].lastId || 0;
       return lastId;

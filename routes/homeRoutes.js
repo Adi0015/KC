@@ -50,7 +50,7 @@ router
 router
     .route("/admission")
     .get(homeController.getAdmission)
-    .post(upload.fields([{ name: 'childPicture', maxCount: 1 }, { name: 'parentPicture', maxCount: 1 },{ name :'birthCertificate', maxcount:1}]), homeController.createAdmisson);
+    .post(upload.fields([{ name: 'childPicture', maxCount: 1 }, { name: 'parentPicture', maxCount: 1 },{ name :'birthCertificate', maxcount:1}]), homeController.createAdmission);
 
 
 

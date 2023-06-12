@@ -8,7 +8,7 @@ const excel = require("exceljs");
 
 exports.getHome = async (req, res) => {
   try {
-    const totalStudents = "SELECT MAX(id) FROM admisson";
+    const totalStudents = "SELECT MAX(id) FROM admission";
     const [totalStudent] = await db.execute(totalStudents);
     res
       .status(200)
@@ -108,7 +108,7 @@ exports.newVideoCaption = async (req, res) => {
   }
 };
 
-exports.createAdmisson = async (req, res) => {
+exports.createAdmission = async (req, res) => {
   const {
     name,
     childAge,
@@ -162,7 +162,7 @@ exports.createAdmisson = async (req, res) => {
 exports.getadmin = async (req, res) => {
   try {
     const insightssql =
-      "SELECT id, childname,branch,standard, email, whatsapp, totalFees, feespaid, remainingFees ,date ,uniqueid FROM admisson";
+      "SELECT id, childname,branch,standard, email, whatsapp, totalFees, feespaid, remainingFees ,date ,uniqueid FROM admission";
     const { startDate, endDate } = req.query;
     let sql = `SELECT * FROM enquiry`;
     if (startDate && endDate) {
@@ -266,7 +266,7 @@ exports.updateData = async (req, res) => {
     }
     updates = updates.slice(0, -2); // Remove the trailing comma and space
 
-    const sql = `UPDATE admisson SET ${updates} WHERE id = '${id}'`;
+    const sql = `UPDATE admission SET ${updates} WHERE id = '${id}'`;
     await db.execute(sql);
 
     res.sendStatus(200); // Send a success status code
