@@ -1,8 +1,8 @@
 <!-- include login.ejs -->
-
 <br>
 <br>
 <h1>Insights</h1>
+<div id="academicYearFilter"></div> <!-- Academic Year Filter -->
 <label for="branchFilter">Branch:</label>
 <select id="branchFilter" onchange="filterData()">
   <option value="">All</option>
@@ -33,11 +33,13 @@
 <table id="data-table">
   <thead>
     <tr>
+      <th>Unique Data</th>
       <th>Student Name</th>
       <th>Branch</th>
       <th>Standard</th>
       <th>Email</th>
       <th>WhatsApp no.</th>
+      <th>Admission Date</th>
       <th>Total Fees</th>
       <th>Fees Paid</th>
       <th>Remaining Fees</th>
@@ -46,52 +48,86 @@
     </tr>
   </thead>
   <tbody>
-    <% admissions.forEach(function(admission) { %>
-      <tr>
-        <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="childname">
-          <%= admission.childname %>
-        </td>
-        <td>
-          <%= admission.branch %>
-        </td>
-        <td>
-          <%= admission.standard %>
-        </td>
-        <td>
-          <%= admission.email %>
-        </td>
-        <td>
-          <%= admission.whatsapp %>
-        </td>
-        <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="totalFees">
-          <%= admission.totalFees %>
-        </td>
-        <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="feespaid">
-          <%= admission.feespaid %>
-        </td>
-        <td class="editable" contenteditable="true" data-id="<%= admission.id %>" data-field="remainingFees">
-          <%= admission.totalFees - admission.feespaid %>
-        </td>
-        <td>
-          <button class="update" onclick="updateData('<%= admission.id %>')">Update</button>
-        </td>
-        <td>
-          <button  class="generate" onclick="generateReceipt('<%= admission.childname %>', '<%= admission.branch %>', '<%= admission.standard %>', '<%= admission.email %>', '<%= admission.whatsapp %>', '<%= admission.totalFees %>','<%= admission.feespaid %>')">Generate Receipt</button>
-        </td>
-      </tr>
-    <% }); %>
+    <% var filteredData=[]; %>
+      <% var currentDate=new Date(); %>
+        <% var currentYear=currentDate.getFullYear(); %>
+          <% var academicYearStart=new Date(currentYear, 0, 1); %>
+            <% var academicYearEnd=new Date(currentYear + 1, 0, 1); %>
+
+              <% admissions.forEach(function(admission) { %>
+                <% var admissionDate=new Date(admission.date); %>
+                  <% var admissionYear=admissionDate.getFullYear(); %>
+                    <% if (admissionYear===currentYear || admissionYear===currentYear + 1) { %>
+                      <% filteredData.push(admission); %>
+                        <tr>
+                          <td>
+                            <%= admission.uniqueid %>
+                          </td>
+                          <td class="editable" contenteditable="true" data-id="<%= admission.id %>"
+                            data-field="childname">
+                            <%= admission.childname %>
+                          </td>
+                          <td>
+                            <%= admission.branch %>
+                          </td>
+                          <td>
+                            <%= admission.standard %>
+                          </td>
+                          <td>
+                            <%= admission.email %>
+                          </td>
+                          <td>
+                            <%= admission.whatsapp %>
+                          </td>
+                          <td>
+                            <%= admission.date.toLocaleDateString() %>
+                          </td>
+                          <td class="editable" contenteditable="true" data-id="<%= admission.id %>"
+                            data-field="totalFees">
+                            <%= admission.totalFees %>
+                          </td>
+                          <td class="editable" contenteditable="true" data-id="<%= admission.id %>"
+                            data-field="feespaid">
+                            <%= admission.feespaid %>
+                          </td>
+                          <td class="editable" contenteditable="true" data-id="<%= admission.id %>"
+                            data-field="remainingFees">
+                            <%= admission.totalFees - admission.feespaid %>
+                          </td>
+                          <td>
+                            <button onclick="updateData('<%= admission.id %>')">Update</button>
+                          </td>
+                          <td>
+                            <button
+                              onclick="generateReceipt('<%= admission.childname %>', '<%= admission.branch %>', '<%= admission.standard %>', '<%= admission.email %>', '<%= admission.whatsapp %>', '<%= admission.totalFees %>','<%= admission.feespaid %>')">Generate
+                              Receipt</button>
+                          </td>
+                        </tr>
+                        <% } %>
+                          <% }); %>
   </tbody>
 </table>
 <br>
 <button class="revenue" onclick="sumFees()">Calculate Revenue</button>
 <div id="fees-summary"></div>
-<br>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
 <script src="/script/updateData.js"></script>
 <script>
-  function filterData(admissions) {
+  // Calculate the academic year
+  var currentDate = new Date();
+  var currentYear = currentDate.getFullYear();
+  var academicYear = currentYear.toString() + '-' + (currentYear + 1).toString();
+
+  // Set the academic year filter text
+  var academicYearFilterText = 'Academic Year: ' + academicYear;
+
+  // Display the academic year filter text on the page
+  var academicYearFilterElement = document.getElementById('academicYearFilter');
+  academicYearFilterElement.innerText = academicYearFilterText;
+
+  function filterData() {
     var branchFilter = document.getElementById('branchFilter').value.trim().toLowerCase();
     var standardFilter = document.getElementById('standardFilter').value.trim().toLowerCase();
     var childNameFilter = document.getElementById('childNameFilter').value.trim().toLowerCase();
@@ -137,64 +173,50 @@
   }
 
   function generateReceipt(childName, branch, standard, email, whatsapp, totalFees, feesPaid) {
-  // Calculate remaining fees
-  var remainingFees = totalFees - feesPaid;
+    // Calculate remaining fees
+    var remainingFees = totalFees - feesPaid;
 
-  // Create the PDF content definition
-  var docDefinition = {
-    content: [
-      { text: 'KIDS CONCEPTS', style: 'header' },
-      { text: 'Receipt for Admission', style: 'subheader' },
-      '\n',
-      { text: 'Child Name:', style: 'label' },
-      { text: childName },
-      { text: 'Branch:', style: 'label' },
-      { text: branch },
-      { text: 'Standard:', style: 'label' },
-      { text: standard },
-      { text: 'Email:', style: 'label' },
-      { text: email },
-      { text: 'WhatsApp no.:', style: 'label' },
-      { text: whatsapp },
-      { text: 'Total Fees:', style: 'label' },
-      { text: totalFees },
-      { text: 'Fees Paid:', style: 'label' },
-      { text: feesPaid },
-      { text: 'Remaining Fees:', style: 'label' },
-      { text: remainingFees }
-    ],
-    styles: {
-      header: {
-        fontSize: 24,
-        bold: true,
-        alignment: 'center',
-        margin: [0, 0, 0, 20] // Add margin at the bottom
-      },
-      subheader: {
-        fontSize: 18,
-        bold: true,
-        alignment: 'center',
-        margin: [0, 20, 0, 20]
-      },
-      label: {
-        bold: true,
-        margin: [0, 5, 0, 2],
-        fillColor: '#F2F2F2', // Set background color
-        border: [false, false, false, true], // Add bottom border
-        margin: [0, 2, 0, 5], // Adjust margin
-        paddingLeft: 5 // Add left padding
+    // Create the PDF content definition
+    var docDefinition = {
+      content: [
+        { text: 'KIDS CONCEPTS', style: 'header' },
+        { text: 'Receipt for Admission', style: 'subheader' },
+        '\n',
+        { text: 'Child Name:', style: 'label' },
+        { text: childName },
+        { text: 'Branch:', style: 'label' },
+        { text: branch },
+        { text: 'Standard:', style: 'label' },
+        { text: standard },
+        { text: 'Email:', style: 'label' },
+        { text: email },
+        { text: 'WhatsApp no.:', style: 'label' },
+        { text: whatsapp },
+        { text: 'Total Fees:', style: 'label' },
+        { text: totalFees },
+        { text: 'Fees Paid:', style: 'label' },
+        { text: feesPaid },
+        { text: 'Remaining Fees:', style: 'label' },
+        { text: remainingFees }
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true,
+          alignment: 'center'
+        },
+        subheader: {
+          fontSize: 16,
+          bold: true,
+          alignment: 'center'
+        },
+        label: {
+          bold: true
+        }
       }
-    }
-  };
+    };
 
-  // Generate the PDF document
-  var pdfDoc = pdfMake.createPdf(docDefinition);
-
-  // Save the PDF document with the child's name as the filename
-  pdfDoc.getBlob(function(blob) {
-    var filename = childName.replace(/[^a-z0-9]/gi, '_') + '.pdf';
-    saveAs(blob, filename);
-  });
-}
-
+    // Generate the PDF
+    pdfMake.createPdf(docDefinition).open();
+  }
 </script>

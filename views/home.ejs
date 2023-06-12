@@ -115,27 +115,26 @@
         <!-- Our Activities End -->
 
         <!--Statistics start-->
-        <div class="container-l py-5 bg-danger">
+         <div class="container-l py-5 bg-danger">
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                         <div class="statistics-container">
                             <div class="statistic" id="total-students">
-                              <h1>
-                                <span class="statistic-value">1000</span>
-                              </h1>
-                              <h5>
-                                <span class="statistic-label">Students</span>
-                              </h5>
+                                <h1>
+                                    <span class="statistic-value">1000</span>
+                                  </h1>
+                                  <h5>
+                                    <span class="statistic-label">Students</span>
+                                  </h5>
                             </div>
                             <div class="statistic">
-                              <h1><span class="statistic-value">50+</span></h1>
-                              <h5>
-                                <span class="statistic-label">Activities</span>
-                              </h5>
+                                <h1><span class="statistic-value">50+</span></h1>
+                                <h5>
+                                  <span class="statistic-label">Activities</span>
+                                </h5>
                             </div>
                             <div class="statistic" id="established-years">
-                              
                                 <h1>
                                     <span class="statistic-value"></span>
                                 </h1>
@@ -156,7 +155,7 @@
                 </div>
             </div>
         </div>
-         <!--Statistics end-->
+ 
 
         <!-- Footer Start -->
         <%-include("./common/footer.ejs")%>
@@ -180,9 +179,8 @@
 
         const totalStudentsElement = document.getElementById("total-students");
         const totalStudentsValueElement = totalStudentsElement.querySelector(".statistic-value");
-        totalStudentsElement.innerHTML = '<h1>2400+</h1><h5>Students from past ' + difference + '+ years</h5>';
+        totalStudentsElement.textContent ='Students from past '+difference+' + years';
       </script>
-
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -67,7 +67,11 @@ router
 router 
   .route("/gallery")
   .get(homeController.getGallery)
-  
+
+router 
+.route("/copyright")
+.get(homeController.getCopyright)
+ 
   
   router
   .route('/admin')
