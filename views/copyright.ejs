@@ -5,57 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 .body {
     font-family:'Roboto', sans-serif;
     font-weight: bold;
 }
-
 span {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 45px;
+    font-size: 40px;
+    background-color: rgb(159, 159, 209);
+    padding: 10px;
+    border-radius: 2rem;
+    color: white;
 }
-
 img {
     height: 200px;
     width: 200px;
 }
-
 #principal {
     text-align: center;
+}
+#principal img{
+  height: 350px;
+  width: 350px;
+  border-radius: 3rem;
 }
 a{
     text-decoration: none;
     color: black;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
 }
 a:hover{
     color: blue;
 }
-
 .image-container {
   flex-basis: calc(33.33% - 20px);
   padding: 10px;
   box-sizing: border-box;
   text-align: center;
 }
-
 .image-container img {
-  height: 300px;
-  width: 300px;
-  border-radius: 3rem;
+  height: 270px;
+  width: 270px;
+  border-radius:2rem;
 }
-
-
-    </style>
+table {
+      width: 100%;
+      border-collapse: collapse;
+}
+td {
+      padding: 10px;
+      text-align: center;
+}
+</style>
     <title>Copyright</title>
 </head>
 <body>
     <br>
-    <span> <img src="img\copyright\SAKEC Logo (Blue).png" alt="">Team of Shah and Anchor Kutchhi Engineering College  <img src="img\copyright\Research Cell Logo.png" alt=""></span><br> <br>
+    <div class="copyright">
+      <span> <img src="img\copyright\SAKEC Logo (White).png" alt="">Team of Shah and Anchor Kutchhi Engineering College  <img src="img\copyright\Research Cell Logo.png" alt=""></span><br> <br>
    <div class="container-fluid">
     <div class="row" id="principal">
         <div class="bg-light w-100 mx-auto p-3">
@@ -70,42 +80,53 @@ a:hover{
     <br><br>
     <span>Developing Team</span>
     <br><br>
-    <div class="row" id="teachers">
-        <div class="col">
-          <div class="bg-light w-100 mx-auto p-3">
-            <div class="image-container">
-              <img class="img-fluid" src="img\copyright\jaya-zalte.jpg" alt=""><br>
-              <label><a href="">Jaya Zalte <br>(Mentor)</a></label>
-            </div>
-            <div class="image-container">
-              <img class="img-fluid" src="img\copyright\divya-pritam.jpg" alt=""><br>
-              <label><a href="">Divya Pritam<br>(Mentor)</a></label>
-            </div>
-            <div class="image-container">
-              <img class="img-fluid" src="img\copyright\NamrataMaam.jpg" alt=""><br>
-              <label><a href="">Dr.Namaarata Kkommineni<br>(Mentor)</a></label>
-            </div>
+    <table>
+      <tr>
+        <td>
+          <div class="image-container">
+            <img class="img-fluid" src="img\copyright\jaya-zalte.jpg" alt=""><br>
+            <label><a href="">Jaya Zalte <br>(Mentor)</a></label>
           </div>
-        </div>
-        <div class="col">
-            <div class="bg-light w-100 mx-auto p-3">
-              <div class="image-container">
-                <img class="img-fluid" src="img\copyright\aditya.jpg" alt=""><br>
-                <label><a href="">Aditya Gohil</a></label>
-              </div>
-              <div class="image-container">
-                <img class="img-fluid" src="img\copyright\swapnil.jpg" alt=""><br>
-                <label><a href="">Swapnil Sawant</a></label>
-              </div>
-              <div class="image-container">
-                <img class="img-fluid" src="img\copyright\pranjal.jpg" alt=""><br>
-                <label><a href="linkedin.com/in/pranjal-sawant-5447021b3/ra">Pranjal Sawant</a></label>
-              </div>
-            </div>
+        </td>
+        <td>
+          <div class="image-container">
+            <img class="img-fluid" src="img\copyright\divya-pritam.jpg" alt=""><br>
+            <label><a href="">Divya Pritam<br>(Mentor)</a></label>
           </div>
-      </div>
-      
+        </td>
+        <td>
+          <div class="image-container">
+            <img class="img-fluid" src="img\copyright\NamrataMaam.jpg" alt=""><br>
+            <label><a href="">Dr.Namaarata Kkommineni<br>(Mentor)</a></label>
+          </div>
+        </td>
+      </tr>
+      <br><br>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <div class="image-container">
+            <img class="img-fluid" src="img\copyright\aditya.jpg" alt=""><br>
+            <label><a href="">Aditya Gohil</a></label>
+          </div>
+        </td>
+        <td>
+          <div class="image-container">
+            <img class="img-fluid" src="img\copyright\swapnil.jpg" alt=""><br>
+            <label><a href="">Swapnil Sawant</a></label>
+          </div>
+        </td>
+        <td>
+          <div class="image-container">
+            <img class="img-fluid" src="img\copyright\pranjal.jpg" alt=""><br>
+            <label><a href="www.linkedin.com/in/pranjal-sawant-5447021b3">Pranjal Sawant</a></label>
+          </div>
+        </td>
+      </tr>
+    </table>  
       
    </div>
+    </div>
 </body>
 </html>
