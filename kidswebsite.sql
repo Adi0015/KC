@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 12, 2023 at 02:17 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: localhost
+-- Generation Time: Jun 12, 2023 at 03:00 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admisson`
+-- Table structure for table `admission`
 --
 
-CREATE TABLE `admisson` (
+CREATE TABLE `admission` (
   `id` int(255) NOT NULL,
   `childname` varchar(255) NOT NULL,
   `childage` int(255) NOT NULL,
@@ -52,6 +52,13 @@ CREATE TABLE `admisson` (
   `uniqueId` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admission`
+--
+
+INSERT INTO `admission` (`id`, `childname`, `childage`, `birthdate`, `branch`, `standard`, `fathername`, `fatheroccupation`, `fathermobilenum`, `mothername`, `motheroccupation`, `mothermobilenum`, `email`, `whatsapp`, `totalFees`, `feespaid`, `remainingFees`, `childPicture`, `parentPicture`, `birthCertificate`, `date`, `uniqueId`, `password`) VALUES
+(2400, 'trail base', 8, '2015-03-12', 'Andheri', 'Play Group', 'trail', 'trail', '7894561230', 'trail', 'trail', '7894561230', 'lavite1679@vaband.com', '7894561230', 0, 0, 0, '1686573800094-child.jpg', '1686573800094-parent.jpg', '1686573800094-birthCertificate.jpg', '2023-06-12', 'AN-1', '20150312');
 
 -- --------------------------------------------------------
 
@@ -126,9 +133,9 @@ INSERT INTO `video` (`id`, `label`) VALUES
 --
 
 --
--- Indexes for table `admisson`
+-- Indexes for table `admission`
 --
-ALTER TABLE `admisson`
+ALTER TABLE `admission`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -154,10 +161,10 @@ ALTER TABLE `video`
 --
 
 --
--- AUTO_INCREMENT for table `admisson`
+-- AUTO_INCREMENT for table `admission`
 --
-ALTER TABLE `admisson`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2408;
+ALTER TABLE `admission`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2401;
 
 --
 -- AUTO_INCREMENT for table `enquiry`

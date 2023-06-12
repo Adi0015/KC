@@ -154,22 +154,23 @@
 
     for (var i = 0; i < rows.length; i++) {
       var row = rows[i];
-      var totalFeesCell = row.getElementsByTagName('td')[5];
-      var feesPaidCell = row.getElementsByTagName('td')[6];
+      var totalFeesCell = row.getElementsByTagName('td')[8];
+      var feesPaidCell = row.getElementsByTagName('td')[9];
       var totalFees = parseInt(totalFeesCell.innerText);
       var feesPaid = parseInt(feesPaidCell.innerText);
+      var remainingfees = totalFees - feesPaid
 
       if (!isNaN(totalFees)) {
         totalFeesSum += totalFees;
       }
-
+      
       if (!isNaN(feesPaid)) {
         feesPaidSum += feesPaid;
       }
     }
 
     var summaryDiv = document.getElementById('fees-summary');
-    summaryDiv.innerText = "Total Fees: " + totalFeesSum + ", Fees Paid: " + feesPaidSum;
+    summaryDiv.innerText = "Total Fees: " + totalFeesSum + ", Amount Received: " + feesPaidSum + ", Remaing Amount :" + remainingfees ;
   }
 
   function generateReceipt(childName, branch, standard, email, whatsapp, totalFees, feesPaid) {
