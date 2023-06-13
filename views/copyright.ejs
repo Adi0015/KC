@@ -19,6 +19,15 @@ span {
     border-radius: 2rem;
     color: white;
 }
+h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    background-color: rgb(239, 162, 162);  
+    border-radius: 2rem;
+    padding: 10px;
+}
 img {
     height: 200px;
     width: 200px;
@@ -59,13 +68,57 @@ td {
       padding: 10px;
       text-align: center;
 }
+.logo-container {
+        display: flex;
+        flex-direction: wrap;
+        align-items: center;
+        text-align: center;
+        
+    }
+@media only screen and (max-width: 600px) {
+        .image-container img {
+          max-width: 100%;
+            height: auto;
+        }
+        span img {
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.2;
+            margin-top: 10px;
+            max-width: 100%;
+            height: auto;
+        }
+        .image-container label {
+            display: block;
+            text-align: center;
+            font-size: 10px;
+            line-height: 1.2;
+            margin-top: 10px;
+        }
+        .logo-container {
+            flex-direction: column;
+            background-color: rgb(159, 159, 209);
+            justify-content: center;
+        }
+
+        .logo-container img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
 </style>
     <title>Copyright</title>
 </head>
 <body>
     <br>
     <div class="copyright">
-      <span> <img src="img\copyright\SAKEC Logo (White).png" alt="">Team of Shah and Anchor Kutchhi Engineering College  <img src="img\copyright\Research Cell Logo.png" alt=""></span><br> <br>
+      <div class="logo-container">
+        <img src="img\copyright\SAKEC Logo (Blue).png" alt="">
+        <span>Team of Shah and Anchor Kutchhi Engineering College</span>
+        <img src="img\copyright\Research Cell Logo.png" alt="">
+    </div>
+      <!-- <span> <img src="img\copyright\SAKEC Logo (White).png" alt="">Team of Shah and Anchor Kutchhi Engineering College  <img src="img\copyright\Research Cell Logo.png" alt=""></span><br> <br> -->
    <div class="container-fluid">
     <div class="row" id="principal">
         <div class="bg-light w-100 mx-auto p-3">
@@ -84,8 +137,8 @@ td {
       <tr>
         <td>
           <div class="image-container">
-            <img class="img-fluid" src="img\copyright\jaya-zalte.jpg" alt=""><br>
-            <label><a href="">Jaya Zalte <br>(Mentor)</a></label>
+            <img class="img-fluid" src="img\copyright\NamrataMaam.jpg" alt=""><br>
+            <label><a href="">Dr.Namaarata Kkommineni<br>(Research Coordinator)</a></label>
           </div>
         </td>
         <td>
@@ -96,8 +149,8 @@ td {
         </td>
         <td>
           <div class="image-container">
-            <img class="img-fluid" src="img\copyright\NamrataMaam.jpg" alt=""><br>
-            <label><a href="">Dr.Namaarata Kkommineni<br>(Mentor)</a></label>
+            <img class="img-fluid" src="img\copyright\jaya-zalte.jpg" alt=""><br>
+            <label><a href="">Jaya Zalte <br>(Mentor)</a></label>
           </div>
         </td>
       </tr>
@@ -108,24 +161,24 @@ td {
         <td>
           <div class="image-container">
             <img class="img-fluid" src="img\copyright\aditya.jpg" alt=""><br>
-            <label><a href="">Aditya Gohil</a></label>
+            <label><a href="">Aditya Gohil<br>(Developer)</a></label>
           </div>
         </td>
         <td>
           <div class="image-container">
             <img class="img-fluid" src="img\copyright\swapnil.jpg" alt=""><br>
-            <label><a href="">Swapnil Sawant</a></label>
+            <label><a href="">Swapnil Sawant<br>(Developer)</a></label>
           </div>
         </td>
         <td>
           <div class="image-container">
             <img class="img-fluid" src="img\copyright\pranjal.jpg" alt=""><br>
-            <label><a href="www.linkedin.com/in/pranjal-sawant-5447021b3">Pranjal Sawant</a></label>
+            <label><a href="">Pranjal Sawant<br>(Developer)</a></label>
           </div>
         </td>
       </tr>
     </table>  
-      
+   <h2>The developers would like to express their sincere gratitude to the student mentors Aditya Sawant , Snehil Shah and Sachin Singh.</h2> 
    </div>
     </div>
 </body>
