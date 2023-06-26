@@ -54,7 +54,7 @@ exports.getGallery = async (req, res) => {
 };
 
 exports.getContact = async (req, res) => {
-  res.status(200).render("contact", { page: "contact" });
+  res.status(200).render("contact", { page: "contact", email: process.env.EMAIL });
 };
 
 exports.getCopyright = async (req, res) => {

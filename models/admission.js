@@ -46,13 +46,13 @@ class Admission{
           // Example: SMTP settings for Gmail
           service: 'gmail',
           auth: {
-            user: 'swapnilsawant576@gmail.com',
-            pass: 'obodgsfotcgeexrf',
+            user: process.env.EMAIL,
+            pass: process.env.EMAIL_PASSWORD,
               },
           });
     
         const mailOptions = {
-          from: 'swapnilsawant576@gmail.com',
+          from: process.env.EMAIL,
           to: this.email,
           subject: 'Admission Form Submitted',
           text: `Your admission form has been submitted successfully.\n\nUnique ID: ${this.uniqueId}\nPassword: ${this.password}`,
